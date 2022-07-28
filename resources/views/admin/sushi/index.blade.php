@@ -9,7 +9,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Immagine</th>
                     <th scope="col">Prezzo</th>
-                    <th scope="col">Comandi</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@
 
 
                         <td>
-                            <a href="{{ route('admin.sushi.show', $food) }}" class="btn btn-outline-primary">Mostra</a>
+                            <a href="{{ route('admin.sushi.show', $food) }}" class="btn btn-outline-danger">Mostra</a>
 
                             <a href="{{ route('admin.sushi.edit', $food) }}" class="btn btn-outline-success">Modifica</a>
 
@@ -48,5 +48,17 @@
         </table>
 
         {{ $foods->links() }}
+
+        @foreach ($categories as $category)
+            <h5>{{ $category->name }}</h5>
+            <ul>
+                <li>
+                    @foreach ($category->foods as $food)
+                        {{ $food->name }}
+                    @endforeach
+                </li>
+            </ul>
+        @endforeach
+
     </div>
 @endsection

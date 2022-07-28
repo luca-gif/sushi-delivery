@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\FoodRequest;
 use App\Food;
+use App\Category;
 
 class FoodController extends Controller
 {
@@ -16,9 +17,10 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = Food::orderBy('id', 'desc')->paginate(10);
+        $foods = Food::orderBy('id', 'desc')->paginate(5);
+        $categories = Category::all();
 
-        return view('admin.sushi.index', compact('foods'));
+        return view('admin.sushi.index', compact('foods', 'categories'));
     }
 
     /**

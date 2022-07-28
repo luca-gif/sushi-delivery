@@ -7,11 +7,18 @@ use Illuminate\Support\Str;
 
 class Food extends Model
 {
+
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
+
     protected $fillable = [
         'image',
         'name',
         'slug',
         'description',
+        'relation',
         'price'
     ];
 
