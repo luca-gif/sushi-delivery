@@ -19,6 +19,12 @@ class UpdateFoodTable extends Migration
                 ->references('id')
                 ->on('categories')
                 ->onDelete('set null');
+
+            $table->unsignedBigInteger('type_id')->nullable()->after('category_id');
+            $table->foreign('type_id')
+                ->references('id')
+                ->on('types')
+                ->onDelete('set null');
         });
     }
 
@@ -32,6 +38,9 @@ class UpdateFoodTable extends Migration
         Schema::table('food', function (Blueprint $table) {
             $table->dropForeign(['category_id']);
             $table->dropColumn('category_id');
+
+            $table->dropForeign(['type_id']);
+            $table->dropColumn('type_id');
         });
     }
 }

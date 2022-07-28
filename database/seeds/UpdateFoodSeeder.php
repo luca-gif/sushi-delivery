@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Category;
+
 use App\Food;
 
 class UpdateFoodSeeder extends Seeder
@@ -19,6 +19,7 @@ class UpdateFoodSeeder extends Seeder
         // li ciclo e li associo
         foreach ($foods as $food) {
             $food->category_id = $food->relation;
+            // $food->type_id = $food->relation_type;
 
             $food->update();
             // dump($food->category_id);

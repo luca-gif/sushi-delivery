@@ -23,7 +23,12 @@ class FoodTableSeeder extends Seeder
             $new_food->slug = Food::slugGenerator($new_food->name);
             $new_food->description = $food['description'];
             $new_food->price = $food['price'];
-            $new_food->relation = $food['relation'];
+            $new_food->relation = $food['relation_category'];
+
+            if (!empty($food['relation_type'])) {
+
+                $new_food->relation_type = $food['relation_type'];
+            }
 
             $new_food->save();
         }

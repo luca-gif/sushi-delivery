@@ -13,6 +13,11 @@ class Food extends Model
         return $this->belongsTo('App\Category');
     }
 
+    public function type()
+    {
+        return $this->belongsTo('App\Type');
+    }
+
     protected $fillable = [
         'image',
         'name',
