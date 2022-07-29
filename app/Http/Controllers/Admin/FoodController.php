@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\FoodRequest;
 use App\Food;
 use App\Category;
+use App\Type;
 
 class FoodController extends Controller
 {
@@ -19,8 +20,9 @@ class FoodController extends Controller
     {
         $foods = Food::orderBy('id', 'desc')->paginate(5);
         $categories = Category::all();
+        $types = Type::all();
 
-        return view('admin.sushi.index', compact('foods', 'categories'));
+        return view('admin.sushi.index', compact('foods', 'categories', 'types'));
     }
 
     /**
@@ -30,7 +32,10 @@ class FoodController extends Controller
      */
     public function create()
     {
-        return view('admin.sushi.create');
+        $categories = Category::all();
+        $types = Type::all();
+
+        return view('admin.sushi.create', compact('categories', 'types'));
     }
 
     /**
@@ -46,6 +51,7 @@ class FoodController extends Controller
         $new_food->fill($data);
         $new_food->slug = Food::slugGenerator($data['name']);
         $new_food->save();
+        // dd($new_food);
 
         return redirect()->route('admin.sushi.show', $new_food);
     }

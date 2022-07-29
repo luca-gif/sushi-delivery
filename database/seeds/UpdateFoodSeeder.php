@@ -19,10 +19,12 @@ class UpdateFoodSeeder extends Seeder
         // li ciclo e li associo
         foreach ($foods as $food) {
             $food->category_id = $food->relation;
-            // $food->type_id = $food->relation_type;
+
+            if (!empty($food->relation_type)) {
+                $food->type_id = $food->relation_type;
+            }
 
             $food->update();
-            // dump($food->category_id);
         }
     }
 }

@@ -9,6 +9,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Immagine</th>
                     <th scope="col">Prezzo</th>
+                    <th scope="col">Azioni</th>
 
                 </tr>
             </thead>
@@ -25,7 +26,6 @@
                         </td>
 
                         <td> € {{ $food->price }}</td>
-                        <td>{{ $food->position }}</td>
 
 
                         <td>
@@ -33,11 +33,11 @@
 
                             <a href="{{ route('admin.sushi.edit', $food) }}" class="btn btn-outline-success">Modifica</a>
 
-                            <form class="d-inline-block" action="{{ route('admin.sushi.destroy', $food) }}" method="POST"
-                                onsubmit="return confirm('Sei sicuro di voler eliminare'{{ $food->name }}?)">
+                            <form class="d-inline-block" action="{{ route('admin.sushi.destroy', $food) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-outline-dark">Elimina</button>
+                                <button onclick="return confirm('Sei sicuro di voler eliminare{{ $food->name }}?')"
+                                    type="submit" class="btn btn-outline-dark">Elimina</button>
                             </form>
                         </td>
                     </tr>
@@ -59,6 +59,7 @@
                 </li>
             </ul>
         @endforeach
+
 
     </div>
 @endsection
