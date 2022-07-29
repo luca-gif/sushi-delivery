@@ -39,9 +39,16 @@
                         {{ $category->name }}
                     </option>
                 @endforeach
-
             </select>
 
+            <select class="form-select mb-2" name="type_id">
+                <option disabled selected>Seleziona un tipo di sushi</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" @if ($type->id == old('type_id')) selected @endif>
+                        {{ $type->name }}
+                    </option>
+                @endforeach
+            </select>
 
             <div class="form-group">
                 <label for="price">Prezzo</label>

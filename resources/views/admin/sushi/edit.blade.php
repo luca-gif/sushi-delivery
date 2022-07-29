@@ -37,12 +37,22 @@
 
                 <option disabled selected>Seleziona una categoria</option>
                 @foreach ($categories as $category)
-                    <option value="{{ $category->id }}" @if ($category->id == old('category_id')) selected @endif>
+                    <option value="{{ $category->id }}" @if ($category->id == old('category_id', $food->category_id)) selected @endif>
                         {{ $category->name }}
                     </option>
                 @endforeach
-
             </select>
+
+            @if ($food->type_id)
+                <select class="form-select mb-2" name="type_id">
+                    <option disabled selected>Seleziona un tipo di sushi</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" @if ($type->id == old('type_id', $food->type_id)) selected @endif>
+                            {{ $type->name }}
+                        </option>
+                    @endforeach
+                </select>
+            @endif
 
 
             <div class="form-group">

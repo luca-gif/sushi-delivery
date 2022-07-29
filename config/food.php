@@ -68,7 +68,7 @@ return [
     [
         "name" => "Patatine fritte",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/10.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "4.00",
         "relation_category" => 3
     ],
@@ -396,7 +396,7 @@ return [
     [
         "name" => "Riso con verdure",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/46.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "4.50",
         "relation_category" => 5
 
@@ -404,7 +404,7 @@ return [
     [
         "name" => "Riso cantonese",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/47.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "5.50",
         "relation_category" => 5
 
@@ -412,7 +412,7 @@ return [
     [
         "name" => "Riso con gamberi",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/48.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "6.00",
         "relation_category" => 5
 
@@ -420,7 +420,7 @@ return [
     [
         "name" => "Spaghetti di soia con verdure",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/49.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "4.50",
         "relation_category" => 5
 
@@ -428,7 +428,7 @@ return [
     [
         "name" => "Spaghetti di soia con gamberi",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/50.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "6.00",
         "relation_category" => 5
 
@@ -436,7 +436,7 @@ return [
     [
         "name" => "Spaghetti di riso con verdure",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/51.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "5.00",
         "relation_category" => 5
 
@@ -444,7 +444,7 @@ return [
     [
         "name" => "Spaghetti di riso con gamberi",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/52.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "6.50",
         "relation_category" => 5
 
@@ -452,7 +452,7 @@ return [
     [
         "name" => "Ramen special Miko",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/53.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "10.00",
         "relation_category" => 5
 
@@ -460,7 +460,7 @@ return [
     [
         "name" => "Pollo con mandorle",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/54.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "7.00",
         "relation_category" => 6
 
@@ -468,7 +468,7 @@ return [
     [
         "name" => "Gamberi sale e pepe",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/55.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "8.00",
         "relation_category" => 6
 
@@ -476,7 +476,7 @@ return [
     [
         "name" => "Gamberi con verdure",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/56.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "8.00",
         "relation_category" => 6
 
@@ -484,126 +484,126 @@ return [
     [
         "name" => "Gamberi piccanti",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/57.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "8.00",
         "relation_category" => 6
     ],
     [
         "name" => "Filetto di salmone",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/58.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "11.00",
         "relation_category" => 7
     ],
     [
         "name" => "Spiedini di gamberi alla griglia",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/59.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "9.00",
         "relation_category" => 7
     ],
     [
         "name" => "Gamberoni speziati",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/60.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "11.00",
         "relation_category" => 7
     ],
     [
         "name" => "Sushi Lovers",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/61.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "21.00",
         "relation_category" => 1
     ],
     [
         "name" => "Friends Box",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/62.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "30.00",
         "relation_category" => 1
     ],
     [
         "name" => "Congiunti Party Box",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/63.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "55.00",
         "relation_category" => 1
     ],
     [
         "name" => "Family Menù",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/64.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "88.00",
         "relation_category" => 1
     ],
     [
         "name" => "Acqua naturale (50cl)",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/B1.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "1.50",
         "relation_category" => 8
     ],
     [
         "name" => "Acqua frizzante (50cl)",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/B2.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "1.50",
         "relation_category" => 8
     ],
     [
         "name" => "Coca Cola (33cl)",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/B3.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "2.50",
         "relation_category" => 8
     ],
     [
         "name" => "Fanta (33cl)",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/B4.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "2.50",
         "relation_category" => 8
     ],
     [
         "name" => "Thè al limone (33cl)",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/B5.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "2.50",
         "relation_category" => 8
     ],
     [
         "name" => "Thè alla pesca (33cl)",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/B6.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "2.50",
         "relation_category" => 8
     ],
     [
         "name" => "Asahi (50cl)",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/B7.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "5.00",
         "relation_category" => 8
     ],
     [
         "name" => "Sapporo (50cl)",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/B8.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "5.00",
         "relation_category" => 8
     ],
     [
         "name" => "Sapporo (65cl)",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/B9.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "6.50",
         "relation_category" => 8
     ],
     [
         "name" => "Qingdao  (65cl)",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/B10.jpg?lossy=1&strip=1&webp=1",
-        "description" => "",
+
         "price" => "3.50",
         "relation_category" => 8
     ],

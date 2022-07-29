@@ -25,7 +25,8 @@ class Food extends Model
         'description',
         'relation',
         'price',
-        'category_id'
+        'category_id',
+        'type_id'
     ];
 
 
