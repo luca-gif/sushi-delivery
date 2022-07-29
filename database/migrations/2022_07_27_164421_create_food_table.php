@@ -20,7 +20,7 @@ class CreateFoodTable extends Migration
             $table->string('slug');
             $table->unsignedTinyInteger('relation')->nullable();
             $table->unsignedTinyInteger('relation_type')->nullable();
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->decimal('price')->unsigned();
             $table->timestamps();
         });

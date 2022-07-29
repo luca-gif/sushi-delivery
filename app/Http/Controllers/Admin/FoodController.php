@@ -78,8 +78,10 @@ class FoodController extends Controller
     public function edit($id)
     {
         $food = Food::find($id);
+        $categories = Category::all();
+        $types = Type::all();
 
-        return view('admin.sushi.edit', compact('food'));
+        return view('admin.sushi.edit', compact('food', 'categories', 'types'));
     }
 
     /**

@@ -33,6 +33,17 @@
                 @enderror
             </div>
 
+            <select class="form-select mb-2" name="category_id">
+
+                <option disabled selected>Seleziona una categoria</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" @if ($category->id == old('category_id')) selected @endif>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+
+            </select>
+
 
             <div class="form-group">
                 <label for="price">Prezzo</label>

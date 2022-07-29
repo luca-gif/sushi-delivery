@@ -27,7 +27,7 @@ class FoodRequest extends FormRequest
             'name' => 'required|max:255|min:3',
             'image' => 'required|max:255|min:3',
             'price' => 'required|numeric',
-            'description' => 'required|min:5|max:255',
+            'description' => 'max:255',
 
         ];
     }
@@ -43,10 +43,7 @@ class FoodRequest extends FormRequest
             'image.min' => 'La lunghezza minima consentita è di :min caratteri',
             'price.required' => 'Inserisci il prezzo',
             'price.numeric' => 'Inserisci un valore numerico',
-            'description.required' => 'Inserisci una descrizione',
-            'description.max' => 'La lunghezza massima consentita è di :max caratteri',
-            'description.min' => 'La lunghezza minima consentita è di :min caratteri',
-
+            'description.max' => 'La lunghezza massima consentita è di :max caratteri'
         ];
     }
 }
