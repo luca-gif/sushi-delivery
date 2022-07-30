@@ -32,10 +32,11 @@ class FoodController extends Controller
      */
     public function create()
     {
+        $foods = Food::all();
         $categories = Category::all();
         $types = Type::all();
 
-        return view('admin.sushi.create', compact('categories', 'types'));
+        return view('admin.sushi.create', compact('categories', 'types', 'foods'));
     }
 
     /**
