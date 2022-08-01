@@ -86,6 +86,39 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@fontsource/lato/files/lato-all-400-normal.woff":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@fontsource/lato/files/lato-all-400-normal.woff ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/@fontsource/lato/files/lato-all-400-normal.woff?a82dcb33d52ed6fa529e5ae8d5fda7f3";
+
+/***/ }),
+
+/***/ "./node_modules/@fontsource/lato/files/lato-latin-400-normal.woff2":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@fontsource/lato/files/lato-latin-400-normal.woff2 ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/@fontsource/lato/files/lato-latin-400-normal.woff2?e1b3b5908c9cf23dfb2b9c52b9a023ab";
+
+/***/ }),
+
+/***/ "./node_modules/@fontsource/lato/files/lato-latin-ext-400-normal.woff2":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@fontsource/lato/files/lato-latin-ext-400-normal.woff2 ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/@fontsource/lato/files/lato-latin-ext-400-normal.woff2?4bde07f991ba6af69a1e009fd7ce9d1a";
+
+/***/ }),
+
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -2143,33 +2176,70 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("main", [_c("div", {
     staticClass: "lm-jumbotron"
   }, [_c("div", {
     staticClass: "overlay"
   }, [_c("div", {
     staticClass: "jumbo-container text-uppercase text-white d-flex align-items-center justify-content-center flex-column"
-  }, [_c("h2", [_vm._v("Fusion Restaurant")]), _vm._v(" "), _c("div", {
-    staticClass: "name"
-  }, [_c("h1", [_vm._v("Miko")])]), _vm._v(" "), _c("h3", [_vm._v("20 anni di esperienza")]), _vm._v(" "), _c("div", {
-    staticClass: "miko-btn"
-  }, [_c("a", {
-    staticClass: "text-white",
+  }, [_c("h2", [_vm._v("Fusion Restaurant")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("h3", [_vm._v("20 anni di esperienza")]), _vm._v(" "), _c("router-link", {
+    staticClass: "miko-btn text-white",
     attrs: {
-      href: "#"
+      to: {
+        name: "delivery"
+      }
     }
-  }, [_vm._v("Ordina ora")])])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Ordina ora")])], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "container"
+  }, [_c("section", {
+    staticClass: "experience"
   }, [_c("div", {
     staticClass: "row py-5"
-  }, [_c("div", {
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "col-6 py-5"
+  }, [_vm._m(2), _vm._v(" "), _c("h2", [_vm._v("Una spanna sopra gli altri")]), _vm._v(" "), _c("p", {
+    staticClass: "pt-3"
+  }, [_vm._v("Un detto giapponese afferma che mangiando con il cuore, le persone ricavano l’energia necessaria per perseguire i propri Sogni.")]), _vm._v(" "), _c("p", {
+    staticClass: "py-3"
+  }, [_vm._v("Questo è lo scopo della cucina giapponese e cinese.")]), _vm._v(" "), _c("p", [_vm._v("I loro ingredienti sono semplici e leggeri, ma è soprattutto il loro equilibrio e la loro armonia che trasformano il tutto in qualcosa di magico, qualcosa di PERFETTO.")]), _vm._v(" "), _c("div", {
+    staticClass: "my-5"
+  }, [_c("router-link", {
+    staticClass: "miko-btn text-white",
+    attrs: {
+      to: {
+        name: "delivery"
+      }
+    }
+  }, [_vm._v("Chi siamo")])], 1)])])])]), _vm._v(" "), _c("div", {
+    staticClass: "i-nostri-piatti row"
+  }, [_vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "container text-center"
+  }, [_vm._m(4), _vm._v(" "), _c("p", {
+    staticClass: "my-5"
+  }, [_vm._v("I piatti più amati. Scoprili tutti…")]), _vm._v(" "), _c("div", {
+    staticClass: "pb-5"
+  }, [_c("router-link", {
+    staticClass: "miko-btn text-white",
+    attrs: {
+      to: {
+        name: "delivery"
+      }
+    }
+  }, [_vm._v("Vai allo shop")])], 1)])]), _vm._v(" "), _vm._m(5)]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "name"
+  }, [_c("h1", [_vm._v("Miko")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
     staticClass: "col-6"
   }, [_c("img", {
     attrs: {
@@ -2177,14 +2247,75 @@ var staticRenderFns = [function () {
       src: __webpack_require__(/*! ../../assets/img/64784400_157513548631681_833729039937920018_n.webp */ "./resources/js/assets/img/64784400_157513548631681_833729039937920018_n.webp"),
       alt: ""
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-6 debug"
-  }, [_c("h4", [_vm._v("20 ANNI DI ESPERIENZA")]), _vm._v(" "), _c("h2", [_vm._v("Una spanna sopra gli altri")]), _vm._v(" "), _c("p", [_vm._v("Un detto giapponese afferma che mangiando con il cuore, le persone ricavano l’energia necessaria per perseguire i propri Sogni.")]), _vm._v(" "), _c("p", [_vm._v("Questo è lo scopo della cucina giapponese e cinese.")]), _vm._v(" "), _c("p", [_vm._v("I loro ingredienti sono semplici e leggeri, ma è soprattutto il loro equilibrio e la loro armonia che trasformano il tutto in qualcosa di magico, qualcosa di PERFETTO.")]), _vm._v(" "), _c("a", {
-    staticClass: "miko-btn text-white",
+  })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("h4", {
+    staticClass: "pb-3"
+  }, [_c("span", [_vm._v("20 ANNI DI ESPERIENZA")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "col-12 text-center"
+  }, [_c("h4", [_vm._v("100% FRESCO")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-between align-items-baseline"
+  }, [_c("div", {
+    staticClass: "disegno"
+  }), _vm._v(" "), _c("span", [_vm._v("I nostri piatti")]), _vm._v(" "), _c("div", {
+    staticClass: "disegno"
+  })])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-3"
+  }, [_c("img", {
     attrs: {
-      href: "#"
+      src: "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/05/P1488388-400x516.jpg?lossy=1&strip=1&webp=1",
+      alt: ""
     }
-  }, [_vm._v("Chi siamo")])])])])]);
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-3"
+  }, [_c("img", {
+    attrs: {
+      src: "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/05/P1477104-400x516.jpg?lossy=1&strip=1&webp=1",
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-3"
+  }, [_c("img", {
+    attrs: {
+      src: "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/05/P1477058-400x516.jpg?lossy=1&strip=1&webp=1",
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-3"
+  }, [_c("img", {
+    attrs: {
+      src: "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/05/P1477534-400x516.jpg?lossy=1&strip=1&webp=1",
+      alt: ""
+    }
+  })])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("section", {
+    staticClass: "tocca-a-te"
+  }, [_c("div", {
+    staticClass: "d-flex justify-content-between align-items-baseline text-white py-4"
+  }, [_c("div", {
+    staticClass: "disegno"
+  }), _vm._v(" "), _c("span", [_vm._v("Tocca a te adesso")]), _vm._v(" "), _c("div", {
+    staticClass: "disegno"
+  })])]);
 }];
 render._withStripped = true;
 
@@ -2383,6 +2514,26 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/@fontsource/lato/index.css":
+/*!***************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/@fontsource/lato/index.css ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var escape = __webpack_require__(/*! ../../css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
+exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* lato-latin-ext-400-normal*/\n@font-face {\n  font-family: 'Lato';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 400;\n  src: url(" + escape(__webpack_require__(/*! ./files/lato-latin-ext-400-normal.woff2 */ "./node_modules/@fontsource/lato/files/lato-latin-ext-400-normal.woff2")) + ") format('woff2'), url(" + escape(__webpack_require__(/*! ./files/lato-all-400-normal.woff */ "./node_modules/@fontsource/lato/files/lato-all-400-normal.woff")) + ") format('woff');\n  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* lato-latin-400-normal*/\n@font-face {\n  font-family: 'Lato';\n  font-style: normal;\n  font-display: swap;\n  font-weight: 400;\n  src: url(" + escape(__webpack_require__(/*! ./files/lato-latin-400-normal.woff2 */ "./node_modules/@fontsource/lato/files/lato-latin-400-normal.woff2")) + ") format('woff2'), url(" + escape(__webpack_require__(/*! ./files/lato-all-400-normal.woff */ "./node_modules/@fontsource/lato/files/lato-all-400-normal.woff")) + ") format('woff');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/bootstrap/dist/css/bootstrap.css":
 /*!*********************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/bootstrap/dist/css/bootstrap.css ***!
@@ -2412,9 +2563,10 @@ exports.push([module.i, "/*!\n * Bootstrap v4.6.2 (https://getbootstrap.com/)\n 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 exports.i(__webpack_require__(/*! -!../../node_modules/css-loader!bootstrap/dist/css/bootstrap.css */ "./node_modules/css-loader/index.js!./node_modules/bootstrap/dist/css/bootstrap.css"), "");
+exports.i(__webpack_require__(/*! -!../../node_modules/css-loader!@fontsource/lato/index.css */ "./node_modules/css-loader/index.js!./node_modules/@fontsource/lato/index.css"), "");
 
 // module
-exports.push([module.i, "main {\n  margin-top: 80px;\n}\n.lm-jumbotron {\n  height: 600px;\n}\n.lm-jumbotron .jumbo-container {\n  height: 100%;\n  width: 55%;\n  margin: 0 auto;\n}\n.lm-jumbotron .jumbo-container .name {\n  border-top: 1px solid grey;\n  border-bottom: 1px solid grey;\n  width: 100%;\n  text-align: center;\n  padding: 60px 0;\n}\n.lm-jumbotron .jumbo-container .name h1 {\n  font-size: 80px;\n}\n.miko-btn {\n  background-color: #9a000e;\n  padding: 13px 20px;\n  margin-top: 30px;\n  text-transform: uppercase;\n}\n.overlay {\n  height: 100%;\n  width: 100%;\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));\n}\n.debug {\n  background-color: rgba(255, 0, 0, 0.4);\n  border: 1px solid black;\n}", ""]);
+exports.push([module.i, "* {\n  font-family: \"Lato\", sans-serif;\n}\nmain {\n  margin-top: 80px;\n}\n.lm-jumbotron {\n  height: 600px;\n}\n.lm-jumbotron .jumbo-container {\n  height: 100%;\n  width: 55%;\n  margin: 0 auto;\n}\n.lm-jumbotron .jumbo-container .name {\n  border-top: 1px solid grey;\n  border-bottom: 1px solid grey;\n  width: 100%;\n  text-align: center;\n  padding: 60px 0;\n}\n.lm-jumbotron .jumbo-container .name h1 {\n  font-size: 80px;\n}\n.miko-btn {\n  background-color: #9a000e;\n  padding: 13px 20px;\n  margin-top: 30px;\n  text-transform: uppercase;\n}\n.overlay {\n  height: 100%;\n  width: 100%;\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));\n}\n.debug {\n  background-color: rgba(255, 0, 0, 0.4);\n  border: 1px solid black;\n}", ""]);
 
 // exports
 
@@ -2434,7 +2586,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".lm-jumbotron[data-v-4b10c5b8] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/home-jumbo.jpg */ "./resources/js/assets/img/home-jumbo.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n#girl[data-v-4b10c5b8] {\n  width: 450px;\n  border: 4px solid black;\n  padding: 30px;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n.lm-jumbotron[data-v-4b10c5b8] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/home-jumbo.jpg */ "./resources/js/assets/img/home-jumbo.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n#girl[data-v-4b10c5b8] {\n  width: 500px;\n  border: 4px solid black;\n  padding: 30px;\n}\n.experience h2[data-v-4b10c5b8] {\n  font-size: 50px;\n}\n.experience h4[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.i-nostri-piatti h4[data-v-4b10c5b8], .tocca-a-te h4[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.i-nostri-piatti span[data-v-4b10c5b8], .tocca-a-te span[data-v-4b10c5b8] {\n  font-size: 50px;\n  text-transform: uppercase;\n  margin-top: 20px;\n}\n.i-nostri-piatti .disegno[data-v-4b10c5b8], .tocca-a-te .disegno[data-v-4b10c5b8] {\n  width: 500px;\n  height: 30px;\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-image-11-2.webp */ "./resources/js/assets/img/butcher-image-11-2.webp")) + ");\n}\n.i-nostri-piatti img[data-v-4b10c5b8], .tocca-a-te img[data-v-4b10c5b8] {\n  width: 220px;\n  border-radius: 10px;\n  margin: 20px 0;\n}\n.tocca-a-te[data-v-4b10c5b8] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/crediamo-alla-qualità-scaled.jpg */ "./resources/js/assets/img/crediamo-alla-qualità-scaled.jpg")) + ");\n  height: 1500px;\n}", ""]);
 
 // exports
 
@@ -18322,6 +18474,28 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports) {
 
 module.exports = "/images/64784400_157513548631681_833729039937920018_n.webp?ffc17ad37210a085f759993859d65951";
+
+/***/ }),
+
+/***/ "./resources/js/assets/img/butcher-image-11-2.webp":
+/*!*********************************************************!*\
+  !*** ./resources/js/assets/img/butcher-image-11-2.webp ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/butcher-image-11-2.webp?650846a16b66bd5b652f5c5f5c2978b1";
+
+/***/ }),
+
+/***/ "./resources/js/assets/img/crediamo-alla-qualità-scaled.jpg":
+/*!******************************************************************!*\
+  !*** ./resources/js/assets/img/crediamo-alla-qualità-scaled.jpg ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/crediamo-alla-qualità-scaled.jpg?144dc6b00a20c62212895b1b749565de";
 
 /***/ }),
 

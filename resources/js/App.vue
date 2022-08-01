@@ -23,6 +23,11 @@ export default {
 
 <style lang="scss">
     @import'~bootstrap/dist/css/bootstrap.css';
+    @import '~@fontsource/lato/index.css';
+
+    *{
+        font-family: "Lato", sans-serif;
+    }
 
     main{
         margin-top: 80px;
