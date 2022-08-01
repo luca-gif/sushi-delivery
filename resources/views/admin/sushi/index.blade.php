@@ -36,7 +36,7 @@
                             <form class="d-inline-block" action="{{ route('admin.sushi.destroy', $food) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button onclick="return confirm('Sei sicuro di voler eliminare{{ $food->name }}?')"
+                                <button onclick="return confirm('Sei sicuro di voler eliminare {{ $food->name }}?')"
                                     type="submit" class="btn btn-outline-dark">Elimina</button>
                             </form>
                         </td>

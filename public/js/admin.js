@@ -37270,23 +37270,16 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Visualizzo la select "type" solo quando l'altra è impostata su "sushi"
 
 
-$('select[name="category_id"]').ready(function () {
-  var categoryId = $(this).val();
+$(document).ready(function () {
+  $('select[name="category_id"]').change(function () {
+    var categoryId = $(this).val();
 
-  if (categoryId != 4) {
-    $('select[name="type_id"]').hide();
-  } else {
-    $('select[name="type_id"]').show();
-  }
-});
-$('select[name="category_id"]').change(function () {
-  var categoryId = $(this).val();
-
-  if (categoryId != 4) {
-    $('select[name="type_id"]').hide();
-  } else {
-    $('select[name="type_id"]').show();
-  }
+    if (categoryId != 4) {
+      $('select[name="type_id"]').hide();
+    } else {
+      $('select[name="type_id"]').show();
+    }
+  });
 });
 
 /***/ }),
