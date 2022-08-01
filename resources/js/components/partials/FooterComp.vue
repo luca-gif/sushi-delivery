@@ -5,7 +5,7 @@
 
             <div class="container">
 
-                <div class="row banners text-white my-4">
+                <div class="row banners text-white my-5">
                     <div class="col-5 coupon p-3">
                         <h6>Ottieni il 10% di sconto</h6>
                         <div class="py-2">

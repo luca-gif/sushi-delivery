@@ -9,7 +9,7 @@
                     <h2>Fusion Restaurant</h2>
 
                     <div class="name">
-                        <h1>Miko</h1>
+                        <h1>MIKO</h1>
                     </div>
 
                     <h3>20 anni di esperienza</h3>
@@ -236,6 +236,19 @@
             </div>
         </section>
 
+        <div class="row">
+            <div class="col-6 family p-0">
+                <div class="overlay">
+                    <h2>TU SEI LA NOSTRA FAMIGLIA.</h2>
+                </div>
+
+            </div>
+            <div class="col-6 menu p-0">
+                <div class="overlay"></div>
+
+            </div>
+        </div>
+
 
     </main>
 </template>
@@ -258,6 +271,10 @@ export default {
         background-image: url(../../assets/img/home-jumbo.jpg);
         background-position: center;
         background-size: cover;
+
+        .name{
+            padding: 60px 0;
+        }
     }
 
     #girl{
@@ -370,6 +387,8 @@ export default {
     }
 
     .map{
+
+        margin-bottom: 40px;
         h5{
             letter-spacing: 5px;
             text-transform: uppercase;
@@ -378,6 +397,26 @@ export default {
             line-height: 30px;
             padding: 20px 0;
         }
+    }
+
+    .family{
+        background-image: url('https://mikosushi.it/wp-content/uploads/2020/05/our-family-recipe-book-scaled.jpg');
+        background-position: center;
+        background-size: cover;
+        height: 700px;
+
+        h2{
+            font-size: 80px;
+            color: #fff;
+            line-height: 150px;
+            padding: 100px 80px;
+        }
+    }
+    .menu{
+        background-image: url('https://mikosushi.it/wp-content/uploads/2020/05/53524919_2039244126372772_5984011031826634360_n.jpg');
+        background-position: center;
+        background-size: cover;
+        height: 700px;
     }
 
 </style>

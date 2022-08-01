@@ -46,7 +46,6 @@ export default {
                 border-bottom: 1px solid grey;
                 width: 100%;
                 text-align: center;
-                padding: 60px 0;
 
                 h1{
                     font-size: 80px;
