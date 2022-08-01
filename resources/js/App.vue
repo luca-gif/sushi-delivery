@@ -68,6 +68,12 @@ export default {
         background-image: linear-gradient(to right, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0.1));
     }
 
+    .overlay-white{
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, .9), rgba(255, 255, 255, .8));
+    }
+
     .debug{
         background-color: rgba(255, 0, 0, .4);
         border: 1px solid black;

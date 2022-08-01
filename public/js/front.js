@@ -2225,7 +2225,95 @@ var render = function render() {
         name: "delivery"
       }
     }
-  }, [_vm._v("Vai allo shop")])], 1)])]), _vm._v(" "), _vm._m(5)]);
+  }, [_vm._v("Vai allo shop")])], 1)])]), _vm._v(" "), _c("section", {
+    staticClass: "tocca-a-te"
+  }, [_vm._m(5), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row text-center"
+  }, [_c("div", {
+    staticClass: "col-6 col-sx text-white"
+  }, [_c("h6", [_vm._v("ONLINE")]), _vm._v(" "), _vm._m(6), _vm._v(" "), _c("p", {
+    staticClass: "text-muted"
+  }, [_vm._v("\n                        *Ordina almeno un giorno prima ciò che più ami, la promozione è valida anche per il ritiro in negozio, i box non rientrano nella promozione.\n                    ")]), _vm._v(" "), _c("div", {
+    staticClass: "p-5"
+  }, [_c("router-link", {
+    staticClass: "miko-btn text-white",
+    attrs: {
+      to: {
+        name: "delivery"
+      }
+    }
+  }, [_vm._v("Scopri il menú")])], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "col-6 col-dx p-0"
+  }, [_c("div", {
+    staticClass: "overlay-white"
+  }, [_c("h6", [_vm._v("VIENI A TROVARCI")]), _vm._v(" "), _c("h2", [_vm._v("SIAMO APERTI")]), _vm._v(" "), _vm._m(7), _vm._v(" "), _vm._m(8), _vm._v(" "), _c("p", [_vm._v("Prenota ora il tuo tavolo")]), _vm._v(" "), _c("div", {
+    staticClass: "p-5"
+  }, [_c("router-link", {
+    staticClass: "miko-btn text-white",
+    attrs: {
+      to: {
+        name: "delivery"
+      }
+    }
+  }, [_vm._v("Prenota")])], 1)])])])]), _vm._v(" "), _c("div", {
+    staticClass: "lm-container come-funziona"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-6 text-white"
+  }, [_c("h4", [_vm._v("COME FUNZIONA?")]), _vm._v(" "), _vm._m(9), _vm._v(" "), _c("p", [_vm._v("Ordina i tuoi piatti preferiti riempiendo il carrello e prepara la tavola perchè stiamo arrivando!")]), _vm._v(" "), _c("h5", [_vm._v("Compila il tuo ordine:")]), _vm._v(" "), _vm._m(10), _vm._v(" "), _c("h5", [_vm._v("PAGAMENTI")]), _vm._v(" "), _vm._m(11), _vm._v(" "), _c("h5", [_vm._v("Ordine minimo:")]), _vm._v(" "), _vm._m(12), _vm._v(" "), _c("div", {
+    staticClass: "p-5"
+  }, [_c("router-link", {
+    staticClass: "miko-btn text-white",
+    attrs: {
+      to: {
+        name: "delivery"
+      }
+    }
+  }, [_vm._v("Vai allo shop")])], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "col-6 offset-6 text-white"
+  }, [_c("h4", [_vm._v("COME FUNZIONA?")]), _vm._v(" "), _c("h2", [_vm._v("SUSHI DRIVE")]), _vm._v(" "), _c("p", [_vm._v("Ordina i tuoi piatti preferiti riempiendo il carrello e vieni a ritirare i tuoi piatti in negozio restando comodamente nella tua auto!")]), _vm._v(" "), _c("h5", [_vm._v("Compila il tuo ordine:")]), _vm._v(" "), _vm._m(13), _vm._v(" "), _c("h5", [_vm._v("PAGAMENTI")]), _vm._v(" "), _vm._m(14), _vm._v(" "), _c("div", {
+    staticClass: "p-5"
+  }, [_c("router-link", {
+    staticClass: "miko-btn text-white",
+    attrs: {
+      to: {
+        name: "delivery"
+      }
+    }
+  }, [_vm._v("Vai allo shop")])], 1)])])]), _vm._v(" "), _c("div", {
+    staticClass: "row pt-3"
+  }, [_c("div", {
+    staticClass: "col-12 covid-19 text-center text-white"
+  }, [_c("h3", [_vm._v("COVID-19")]), _vm._v(" "), _c("h2", {
+    staticClass: "py-4"
+  }, [_vm._v("COME TI TUTELIAMO")]), _vm._v(" "), _c("h6", [_vm._v("\n                    La tua sicurezza e la cosa che ci sta più a cuore,  soprattutto ora, considerando la situazione che stiamo vivendo.\n                ")]), _vm._v(" "), _c("h6", [_vm._v("Scopri come svolgiamo le modalità di consegna e ritiro per far sì che tu possa essere sempre al sicuro.")]), _vm._v(" "), _c("div", {
+    staticClass: "p-5"
+  }, [_c("router-link", {
+    staticClass: "miko-btn text-white",
+    attrs: {
+      to: {}
+    }
+  }, [_vm._v("Scopri di piú")])], 1)])])]), _vm._v(" "), _c("section", {
+    staticClass: "map"
+  }, [_vm._m(15), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_vm._m(16), _vm._v(" "), _c("div", {
+    staticClass: "col-4"
+  }, [_c("h5", [_vm._v("Ti aspettiamo")]), _vm._v(" "), _vm._m(17), _vm._v(" "), _c("div", [_c("router-link", {
+    staticClass: "miko-btn text-white",
+    attrs: {
+      to: {
+        name: "delivery"
+      }
+    }
+  }, [_vm._v("Ordina ora")])], 1), _vm._v(" "), _c("h5", {
+    staticClass: "mt-5"
+  }, [_vm._v("Orari per il ritiro")]), _vm._v(" "), _c("h6", [_vm._v("Pranzo: 12:00 – 15:00")]), _vm._v(" "), _c("h6", [_vm._v(" Cena: 19:00 – 23:30 (Da Asporto o Domicilio)")])])])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -2307,15 +2395,94 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("section", {
-    staticClass: "tocca-a-te"
-  }, [_c("div", {
+  return _c("div", {
     staticClass: "d-flex justify-content-between align-items-baseline text-white py-4"
   }, [_c("div", {
     staticClass: "disegno"
   }), _vm._v(" "), _c("span", [_vm._v("Tocca a te adesso")]), _vm._v(" "), _c("div", {
     staticClass: "disegno"
-  })])]);
+  })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("h2", [_vm._v("\n                        ORDINA ORA "), _c("br"), _vm._v("\n                        E OTTIENI "), _c("br"), _vm._v("\n                        IL "), _c("span", [_vm._v("10%")]), _vm._v(" "), _c("br"), _vm._v("\n                        DI SCONTO "), _c("br")]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("p", {
+    staticClass: "py-2"
+  }, [_vm._v("\n                            Tutti i giorni tranne il lunedì, pranzo e cena. "), _c("br"), _vm._v("\n                            (Da asporto o Domicilio)\n                        ")]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("p", [_vm._v("\n                            – Pranzo dalle  12:00 – 15:00 "), _c("br"), _vm._v("\n                            – Cena dalle 19:00 – 23:30 "), _c("br"), _vm._v("\n                            (Da Asporto o Domicilio) "), _c("br")]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("h2", [_vm._v("ORDINA E RESTA "), _c("br"), _vm._v(" COMODO")]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("ul", [_c("li", [_vm._v("il giorno e l’orario di consegna")]), _vm._v(" "), _c("li", [_vm._v("l’indirizzo di consegna")]), _vm._v(" "), _c("li", [_vm._v("il nome e/o cognome sul campanello")]), _vm._v(" "), _c("li", [_vm._v("il tuo numero di telefono, per contattarti in caso di necessità")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("ul", [_c("li", [_vm._v("Potrai pagare in Contanti alla consegna.")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("ul", [_c("li", [_vm._v("La soglia minima per ordine varia in base al chilometraggio nel dettaglio:")]), _vm._v(" "), _c("div", [_vm._v("– Da 0 a 8 km ordine minimo di 40€ .")]), _vm._v(" "), _c("div", [_vm._v("– Da 8 a 12 km ordine minimo 80€ .")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("ul", [_c("li", [_vm._v("il giorno e l’orario del ritiro (ti chiediamo di presentarti soltanto nell’orario scelto)")]), _vm._v(" "), _c("li", [_vm._v("il nome e/o cognome identificativo del tuo ordine")]), _vm._v(" "), _c("li", [_vm._v("il tuo numero di telefono, per contattarti in caso di necessità")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("ul", [_c("li", [_vm._v("Potrai pagare in Contanti al ritiro")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "d-flex justify-content-between align-items-baseline text-dark py-4"
+  }, [_c("div", {
+    staticClass: "disegno"
+  }), _vm._v(" "), _c("span", [_vm._v("RITIRA IN NEGOZIO")]), _vm._v(" "), _c("div", {
+    staticClass: "disegno"
+  })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "col-8"
+  }, [_c("iframe", {
+    staticStyle: {
+      border: "0"
+    },
+    attrs: {
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.0077612748355!2d12.28234142799624!3d44.12446206303605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cbb6e4fe6b78b%3A0x560fa944243cf77!2sMiko%20Sushi%20Cesena!5e0!3m2!1sit!2sit!4v1659385217620!5m2!1sit!2sit",
+      width: "700",
+      height: "350",
+      loading: "lazy",
+      referrerpolicy: "no-referrer-when-downgrade"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("p", [_vm._v("Vieni a ritirare il tuo ordine direttamente al ristorante, ci troviamo in Via Emilia Levante, "), _c("br"), _vm._v("\n                        1655, 47521 Cesena FC")]);
 }];
 render._withStripped = true;
 
@@ -2566,7 +2733,7 @@ exports.i(__webpack_require__(/*! -!../../node_modules/css-loader!bootstrap/dist
 exports.i(__webpack_require__(/*! -!../../node_modules/css-loader!@fontsource/lato/index.css */ "./node_modules/css-loader/index.js!./node_modules/@fontsource/lato/index.css"), "");
 
 // module
-exports.push([module.i, "* {\n  font-family: \"Lato\", sans-serif;\n}\nmain {\n  margin-top: 80px;\n}\n.lm-jumbotron {\n  height: 600px;\n}\n.lm-jumbotron .jumbo-container {\n  height: 100%;\n  width: 55%;\n  margin: 0 auto;\n}\n.lm-jumbotron .jumbo-container .name {\n  border-top: 1px solid grey;\n  border-bottom: 1px solid grey;\n  width: 100%;\n  text-align: center;\n  padding: 60px 0;\n}\n.lm-jumbotron .jumbo-container .name h1 {\n  font-size: 80px;\n}\n.miko-btn {\n  background-color: #9a000e;\n  padding: 13px 20px;\n  margin-top: 30px;\n  text-transform: uppercase;\n}\n.overlay {\n  height: 100%;\n  width: 100%;\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));\n}\n.debug {\n  background-color: rgba(255, 0, 0, 0.4);\n  border: 1px solid black;\n}", ""]);
+exports.push([module.i, "* {\n  font-family: \"Lato\", sans-serif;\n}\nmain {\n  margin-top: 80px;\n}\n.lm-jumbotron {\n  height: 600px;\n}\n.lm-jumbotron .jumbo-container {\n  height: 100%;\n  width: 55%;\n  margin: 0 auto;\n}\n.lm-jumbotron .jumbo-container .name {\n  border-top: 1px solid grey;\n  border-bottom: 1px solid grey;\n  width: 100%;\n  text-align: center;\n  padding: 60px 0;\n}\n.lm-jumbotron .jumbo-container .name h1 {\n  font-size: 80px;\n}\n.miko-btn {\n  background-color: #9a000e;\n  padding: 13px 20px;\n  margin-top: 30px;\n  text-transform: uppercase;\n}\n.overlay {\n  height: 100%;\n  width: 100%;\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));\n}\n.overlay-white {\n  height: 100%;\n  width: 100%;\n  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));\n}\n.debug {\n  background-color: rgba(255, 0, 0, 0.4);\n  border: 1px solid black;\n}", ""]);
 
 // exports
 
@@ -2586,7 +2753,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n.lm-jumbotron[data-v-4b10c5b8] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/home-jumbo.jpg */ "./resources/js/assets/img/home-jumbo.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n#girl[data-v-4b10c5b8] {\n  width: 500px;\n  border: 4px solid black;\n  padding: 30px;\n}\n.experience h2[data-v-4b10c5b8] {\n  font-size: 50px;\n}\n.experience h4[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.i-nostri-piatti h4[data-v-4b10c5b8], .tocca-a-te h4[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.i-nostri-piatti span[data-v-4b10c5b8], .tocca-a-te span[data-v-4b10c5b8] {\n  font-size: 50px;\n  text-transform: uppercase;\n  margin-top: 20px;\n}\n.i-nostri-piatti .disegno[data-v-4b10c5b8], .tocca-a-te .disegno[data-v-4b10c5b8] {\n  width: 500px;\n  height: 30px;\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-image-11-2.webp */ "./resources/js/assets/img/butcher-image-11-2.webp")) + ");\n}\n.i-nostri-piatti img[data-v-4b10c5b8], .tocca-a-te img[data-v-4b10c5b8] {\n  width: 220px;\n  border-radius: 10px;\n  margin: 20px 0;\n}\n.tocca-a-te[data-v-4b10c5b8] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/crediamo-alla-qualità-scaled.jpg */ "./resources/js/assets/img/crediamo-alla-qualità-scaled.jpg")) + ");\n  height: 1500px;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\nmain[data-v-4b10c5b8] {\n  overflow-x: hidden;\n}\n.lm-jumbotron[data-v-4b10c5b8] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/home-jumbo.jpg */ "./resources/js/assets/img/home-jumbo.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n#girl[data-v-4b10c5b8] {\n  width: 500px;\n  border: 4px solid black;\n  padding: 30px;\n}\n.experience h2[data-v-4b10c5b8] {\n  font-size: 50px;\n}\n.experience h4[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.i-nostri-piatti h4[data-v-4b10c5b8], .tocca-a-te h4[data-v-4b10c5b8], .map h4[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.i-nostri-piatti span[data-v-4b10c5b8], .tocca-a-te span[data-v-4b10c5b8], .map span[data-v-4b10c5b8] {\n  font-size: 50px;\n  text-transform: uppercase;\n  margin-top: 20px;\n}\n.i-nostri-piatti .disegno[data-v-4b10c5b8], .tocca-a-te .disegno[data-v-4b10c5b8], .map .disegno[data-v-4b10c5b8] {\n  width: 500px;\n  height: 30px;\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-image-11-2.webp */ "./resources/js/assets/img/butcher-image-11-2.webp")) + ");\n}\n.i-nostri-piatti img[data-v-4b10c5b8], .tocca-a-te img[data-v-4b10c5b8], .map img[data-v-4b10c5b8] {\n  width: 220px;\n  border-radius: 10px;\n  margin: 20px 0;\n}\n.tocca-a-te[data-v-4b10c5b8] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/crediamo-alla-qualità-scaled.jpg */ "./resources/js/assets/img/crediamo-alla-qualità-scaled.jpg")) + ");\n  background-position: top;\n  background-size: cover;\n}\n.tocca-a-te .col-sx[data-v-4b10c5b8] {\n  background-image: url(\"https://mikosushi.it/wp-content/uploads/2020/05/butcher-09.jpg\");\n}\n.tocca-a-te .col-dx[data-v-4b10c5b8] {\n  background-image: url(\"https://mikosushi.it/wp-content/uploads/2020/05/64784400_157513548631681_833729039937920018_n.jpg\");\n}\n.tocca-a-te h2[data-v-4b10c5b8] {\n  line-height: 70px;\n  letter-spacing: 5px;\n}\n.tocca-a-te h6[data-v-4b10c5b8] {\n  color: #9a000e;\n  padding-bottom: 20px;\n}\n.tocca-a-te p[data-v-4b10c5b8] {\n  font-size: 20px;\n  line-height: 40px;\n}\n.tocca-a-te span[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.tocca-a-te .col-sx[data-v-4b10c5b8], .tocca-a-te .overlay-white[data-v-4b10c5b8] {\n  padding: 100px 60px 50px;\n}\n.tocca-a-te .overlay-white h2[data-v-4b10c5b8] {\n  font-size: 50px;\n}\n.lm-container[data-v-4b10c5b8] {\n  width: 90%;\n  margin: 0 auto;\n  margin-top: 100px;\n}\n.lm-container h2[data-v-4b10c5b8] {\n  font-size: 40px;\n  font-weight: bolder;\n}\n.lm-container h4[data-v-4b10c5b8] {\n  font-weight: bolder;\n}\n.covid-19 h2[data-v-4b10c5b8] {\n  font-size: 40px;\n}\n.covid-19 h6[data-v-4b10c5b8] {\n  color: #fff;\n}\n.map h5[data-v-4b10c5b8] {\n  letter-spacing: 5px;\n  text-transform: uppercase;\n}\n.map p[data-v-4b10c5b8] {\n  line-height: 30px;\n  padding: 20px 0;\n}", ""]);
 
 // exports
 
