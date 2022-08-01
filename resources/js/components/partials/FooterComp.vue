@@ -6,16 +6,16 @@
             <div class="container">
 
                 <div class="row banners text-white my-4">
-                    <div class="col-5 coupon p-4">
+                    <div class="col-5 coupon p-3">
                         <h6>Ottieni il 10% di sconto</h6>
                         <div class="py-2">
                             <small class="text-muted">*L’offerta è valida se ordini almeno un giorno prima, i box non rientrano nella promozione.</small>
                         </div>
-                        <p>GUARDA I PRODOTTI</p>
+                        <span>GUARDA I PRODOTTI</span>
                     </div>
 
-                    <div class="col-5 offset-1 delivery p-4">
-                        <h4>Spedizione Gratuita</h4>
+                    <div class="col-5 offset-2 delivery p-3">
+                        <h3 class="pb-2">Spedizione Gratuita</h3>
                         <div><small>Miko Sushi offre la spedizione gratuita su ordini superiori ai 80€</small></div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                 <div class="row text-center">
 
                     <div class="col-3">
-                        <h5>DOVE SIAMO</h5>
+                        <h6>DOVE SIAMO</h6>
                         <span class="text-muted">
                             Via Emilia Levante, 1655, <br>
                             47521 Cesena FC
@@ -73,24 +73,24 @@
                     </div>
 
                     <div class="col-3">
-                        <h5>ORARIO</h5>
+                        <h6>ORARIO</h6>
                         <span class="text-muted">
-                            Pranzo: 12:00 – 15:00 <br>
-                            Cena: 19:00 – 23:30 <br>
-                            (Da Asporto o Domicilio)
+                            Pranzo: <strong>12:00 – 15:00</strong> <br>
+                            Cena: <strong>19:00 – 23:30 <br>
+                            (Da Asporto o Domicilio)</strong>
                         </span>
                     </div>
 
                     <div class="col-3">
-                        <h5>INFO</h5>
-                        <span id="info">
+                        <h6>INFO</h6>
+                        <span class="higlight">
                             0547 304168 <br>
                             info@mikosushi.com
                         </span>
                     </div>
 
                     <div class="col-3">
-                        <h5>FOLLOW</h5>
+                        <h6>FOLLOW</h6>
                         <span>
                             IG - FB
                         </span>
@@ -99,7 +99,7 @@
 
                 <div class="text-center p-5">
                     ©2022 - Miko Sushi. All right reserved. <br>
-                    Costruito con ❤ da Luca.
+                    Costruito con ❤ da <span class="higlight">Luca</span>.
                 </div>
 
             </div>
@@ -160,9 +160,13 @@ export default {
             background-color: #1f2638;
             color: #fff;
             padding-top: 100px;
+
+            h6{
+                margin-bottom: 15px;
+            }
         }
 
-        #info{
+        .higlight{
             color: #ec7550;
         }
     }

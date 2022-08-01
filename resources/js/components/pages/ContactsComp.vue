@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <main>
     <h1>CONTACTS</h1>
-  </div>
+  </main>
 </template>
 
 <script>

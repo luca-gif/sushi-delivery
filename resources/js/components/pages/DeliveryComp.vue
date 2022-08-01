@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <main>
 
     <h1>DELIVERY</h1>
 
-  </div>
+  </main>
 </template>
 
 <script>
@@ -13,5 +13,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 
 </style>
