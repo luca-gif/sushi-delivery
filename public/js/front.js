@@ -2664,16 +2664,13 @@ var render = function render() {
     staticClass: "fixed-top"
   }, [_c("nav", {
     staticClass: "container d-flex justify-content-between align-items-center",
-    "class": {
-      "heigth-50": _vm.isScrolling
-    },
-    on: {
-      scroll: function scroll($event) {
-        _vm.isScrolling = true;
-      }
+    attrs: {
+      id: "navbar"
     }
   }, [_c("div", {
-    staticClass: "logo"
+    attrs: {
+      id: "logo"
+    }
   }, [_vm._v("\n          LOGO\n      ")]), _vm._v(" "), _c("div", {
     staticClass: "actions"
   }, [_c("ul", {
@@ -2841,7 +2838,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "header[data-v-494e1ffe] {\n  background-color: black;\n  z-index: 999;\n}\nheader nav[data-v-494e1ffe] {\n  height: 80px;\n}\nheader nav li[data-v-494e1ffe] {\n  margin-left: 20px;\n}\nheader nav a[data-v-494e1ffe] {\n  color: #919191;\n  text-decoration: none;\n}\n.heigth-50[data-v-494e1ffe] {\n  height: 50px;\n}", ""]);
+exports.push([module.i, "header[data-v-494e1ffe] {\n  background-color: black;\n  z-index: 999;\n}\nheader #navbar[data-v-494e1ffe] {\n  height: 80px;\n  transition: all 0.5s;\n}\nheader #navbar li[data-v-494e1ffe] {\n  margin-left: 20px;\n}\nheader #navbar a[data-v-494e1ffe] {\n  color: #919191;\n  text-decoration: none;\n}\n.heigth-50[data-v-494e1ffe] {\n  height: 50px;\n}", ""]);
 
 // exports
 
@@ -19277,7 +19274,21 @@ var app = new Vue({
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
   } //formula per innestare App.vue in #app
 
-});
+}); // Ridimensiono la navbar allo scroll
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    document.getElementById("navbar").style.height = "50px";
+    document.getElementById("logo").style.fontSize = "25px";
+  } else {
+    document.getElementById("navbar").style.height = "80px";
+    document.getElementById("logo").style.fontSize = "30px";
+  }
+}
 
 /***/ }),
 

@@ -1,8 +1,9 @@
 <template>
   <header class="fixed-top">
 
-    <nav @scroll ="isScrolling = true" :class="{ 'heigth-50' : isScrolling }" class="container d-flex justify-content-between align-items-center">
-        <div class="logo">
+    <nav id="navbar" class="container d-flex justify-content-between align-items-center">
+
+        <div id="logo">
             LOGO
         </div>
 
@@ -38,8 +39,9 @@ export default {
         background-color: black;
         z-index: 999;
 
-        nav{
+        #navbar{
             height: 80px;
+            transition: all .5s;
 
             li{
                 margin-left: 20px;
