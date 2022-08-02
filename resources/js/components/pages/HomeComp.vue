@@ -272,8 +272,12 @@ export default {
         background-position: center;
         background-size: cover;
 
+        h2,h3{
+            letter-spacing: 5px;
+        }
+
         .name{
-            padding: 60px 0;
+            padding: 40px 0;
         }
     }
 

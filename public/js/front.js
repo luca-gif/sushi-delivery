@@ -2042,9 +2042,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HeaderComp',
   data: function data() {
-    return {
-      isScrolling: false
-    };
+    return {};
   }
 });
 
@@ -2153,14 +2151,23 @@ var render = function render() {
     staticClass: "overlay"
   }, [_c("div", {
     staticClass: "jumbo-container text-white d-flex align-items-center justify-content-center flex-column"
-  }, [_vm._m(0), _vm._v(" "), _c("router-link", {
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "buttons"
+  }, [_c("router-link", {
     staticClass: "miko-btn text-white",
     attrs: {
       to: {
         name: "delivery"
       }
     }
-  }, [_vm._v("Inizia ora l'ordine")])], 1)])])]);
+  }, [_vm._v("Inizia ora l'ordine")]), _vm._v(" "), _c("router-link", {
+    staticClass: "text-white",
+    attrs: {
+      to: {
+        name: "delivery"
+      }
+    }
+  }, [_vm._v("Come funziona?")])], 1)])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]);
 };
 
 var staticRenderFns = [function () {
@@ -2170,6 +2177,67 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "name"
   }, [_c("h1", [_vm._v("SIAMO TORNATI")]), _vm._v(" "), _c("h5", [_vm._v("SIAMO TORNATI! ")]), _vm._v(" "), _c("p", [_vm._v("Sul Delivery hai il 10% di sconto se ordini almeno un giorno prima. "), _c("br"), _vm._v("\n                  Mentre se vieni a ritirare da noi il tuo Asporto hai il 20% di sconto. "), _c("br"), _vm._v("\n                  Ricordiamo che i Box non rientrano nella promozione.")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "copertura"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row align-items-center py-5"
+  }, [_c("div", {
+    staticClass: "col-5"
+  }, [_c("h5", [_vm._v("I piatti che ami a domicilio")]), _vm._v(" "), _c("h2", {
+    staticClass: "text-white"
+  }, [_vm._v("Verifica la copertura")]), _vm._v(" "), _c("p", [_vm._v("Vorresti la consegna dei nostri piatti direttamente a casa tua? Inserisci il tuo domicilio e scopri subito se rientri all’interno dei 20Km. Altrimenti potrai sempre venire a ritirarlo nel nostro ristorante!")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-5 offset-2"
+  }, [_c("img", {
+    attrs: {
+      src: __webpack_require__(/*! ../../assets/img/delivery_boy-miko.webp */ "./resources/js/assets/img/delivery_boy-miko.webp"),
+      alt: ""
+    }
+  })])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("section", {
+    staticClass: "delivery"
+  }, [_c("div", {
+    staticClass: "container d-flex justify-content-center align-items-center"
+  }, [_c("div", {
+    staticClass: "delivery-title d-flex flex-column align-items-center justify-content-center"
+  }, [_c("div", {
+    staticClass: "over mt-5"
+  }), _vm._v(" "), _c("h2", [_vm._v("Delivery")])])]), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "categories col-3"
+  }, [_vm._v("\n                  cat\n              ")]), _vm._v(" "), _c("div", {
+    staticClass: "sushi col-3"
+  }, [_c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "13rem",
+      "border-radius": "5px"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "",
+      alt: "Card image cap"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Card title")]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])])])])])])]);
 }];
 render._withStripped = true;
 
@@ -2760,7 +2828,7 @@ exports.i(__webpack_require__(/*! -!../../node_modules/css-loader!bootstrap/dist
 exports.i(__webpack_require__(/*! -!../../node_modules/css-loader!@fontsource/lato/index.css */ "./node_modules/css-loader/index.js!./node_modules/@fontsource/lato/index.css"), "");
 
 // module
-exports.push([module.i, "* {\n  font-family: \"Lato\", sans-serif;\n}\nmain {\n  margin-top: 80px;\n}\n.lm-jumbotron {\n  height: 600px;\n}\n.lm-jumbotron .jumbo-container {\n  height: 100%;\n  width: 55%;\n  margin: 0 auto;\n}\n.lm-jumbotron .jumbo-container .name {\n  border-top: 1px solid grey;\n  border-bottom: 1px solid grey;\n  width: 100%;\n  text-align: center;\n}\n.lm-jumbotron .jumbo-container .name h1 {\n  font-size: 80px;\n}\n.miko-btn {\n  background-color: #9a000e;\n  padding: 13px 20px;\n  margin-top: 30px;\n  text-transform: uppercase;\n}\n.overlay {\n  height: 100%;\n  width: 100%;\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));\n}\n.overlay-white {\n  height: 100%;\n  width: 100%;\n  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));\n}\n.debug {\n  background-color: rgba(255, 0, 0, 0.4);\n  border: 1px solid black;\n}", ""]);
+exports.push([module.i, "* {\n  font-family: \"Lato\", sans-serif;\n}\nmain {\n  margin-top: 50px;\n}\n.lm-jumbotron {\n  height: 600px;\n}\n.lm-jumbotron .jumbo-container {\n  height: 100%;\n  width: 55%;\n  margin: 0 auto;\n}\n.lm-jumbotron .jumbo-container .name {\n  border-top: 1px solid grey;\n  border-bottom: 1px solid grey;\n  width: 100%;\n  text-align: center;\n}\n.lm-jumbotron .jumbo-container .name h1 {\n  font-size: 80px;\n}\n.miko-btn {\n  background-color: #9a000e;\n  padding: 13px 20px;\n  margin-top: 30px;\n  text-transform: uppercase;\n}\n.overlay {\n  height: 100%;\n  width: 100%;\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));\n}\n.overlay-white {\n  height: 100%;\n  width: 100%;\n  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));\n}\n.debug {\n  background-color: rgba(255, 0, 0, 0.4);\n  border: 1px solid black;\n}", ""]);
 
 // exports
 
@@ -2780,7 +2848,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".lm-jumbotron[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/P1488251-scaled.jpg */ "./resources/js/assets/img/P1488251-scaled.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron p[data-v-13959f8e] {\n  line-height: 30px;\n}", ""]);
+exports.push([module.i, ".lm-jumbotron[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/P1488251-scaled.jpg */ "./resources/js/assets/img/P1488251-scaled.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron p[data-v-13959f8e] {\n  line-height: 30px;\n}\n.lm-jumbotron .buttons[data-v-13959f8e] {\n  margin-top: 70px;\n}\n.lm-jumbotron a + a[data-v-13959f8e] {\n  text-decoration: underline;\n  font-weight: bolder;\n  margin-left: 20px;\n}\n.lm-jumbotron a + a[data-v-13959f8e]:hover {\n  text-decoration: none;\n}\n.copertura[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-09.jpg */ "./resources/js/assets/img/butcher-09.jpg")) + ");\n}\n.copertura img[data-v-13959f8e] {\n  width: 300px;\n}\n.copertura h2[data-v-13959f8e] {\n  font-weight: bolder;\n}\n.copertura h5[data-v-13959f8e] {\n  color: #9a000e;\n  font-weight: bolder;\n}\n.copertura p[data-v-13959f8e] {\n  color: rgb(174, 174, 174);\n}\n.delivery .over[data-v-13959f8e] {\n  height: 5px;\n  width: 75px;\n  background-color: #000;\n}\n.delivery h2[data-v-13959f8e] {\n  font-size: 50px;\n  font-weight: bolder;\n  color: #9a000e;\n  padding: 25px 0;\n}", ""]);
 
 // exports
 
@@ -2800,7 +2868,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\nmain[data-v-4b10c5b8] {\n  overflow-x: hidden;\n}\n.lm-jumbotron[data-v-4b10c5b8] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/home-jumbo.jpg */ "./resources/js/assets/img/home-jumbo.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron .name[data-v-4b10c5b8] {\n  padding: 60px 0;\n}\n#girl[data-v-4b10c5b8] {\n  width: 500px;\n  border: 4px solid black;\n  padding: 30px;\n}\n.experience h2[data-v-4b10c5b8] {\n  font-size: 50px;\n}\n.experience h4[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.i-nostri-piatti h4[data-v-4b10c5b8], .tocca-a-te h4[data-v-4b10c5b8], .map h4[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.i-nostri-piatti span[data-v-4b10c5b8], .tocca-a-te span[data-v-4b10c5b8], .map span[data-v-4b10c5b8] {\n  font-size: 50px;\n  text-transform: uppercase;\n  margin-top: 20px;\n}\n.i-nostri-piatti .disegno[data-v-4b10c5b8], .tocca-a-te .disegno[data-v-4b10c5b8], .map .disegno[data-v-4b10c5b8] {\n  width: 500px;\n  height: 30px;\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-image-11-2.webp */ "./resources/js/assets/img/butcher-image-11-2.webp")) + ");\n}\n.i-nostri-piatti img[data-v-4b10c5b8], .tocca-a-te img[data-v-4b10c5b8], .map img[data-v-4b10c5b8] {\n  width: 220px;\n  border-radius: 10px;\n  margin: 20px 0;\n}\n.tocca-a-te[data-v-4b10c5b8] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/crediamo-alla-qualità-scaled.jpg */ "./resources/js/assets/img/crediamo-alla-qualità-scaled.jpg")) + ");\n  background-position: top;\n  background-size: cover;\n}\n.tocca-a-te .col-sx[data-v-4b10c5b8] {\n  background-image: url(\"https://mikosushi.it/wp-content/uploads/2020/05/butcher-09.jpg\");\n}\n.tocca-a-te .col-dx[data-v-4b10c5b8] {\n  background-image: url(\"https://mikosushi.it/wp-content/uploads/2020/05/64784400_157513548631681_833729039937920018_n.jpg\");\n}\n.tocca-a-te h2[data-v-4b10c5b8] {\n  line-height: 70px;\n  letter-spacing: 5px;\n}\n.tocca-a-te h6[data-v-4b10c5b8] {\n  color: #9a000e;\n  padding-bottom: 20px;\n}\n.tocca-a-te p[data-v-4b10c5b8] {\n  font-size: 20px;\n  line-height: 40px;\n}\n.tocca-a-te span[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.tocca-a-te .col-sx[data-v-4b10c5b8], .tocca-a-te .overlay-white[data-v-4b10c5b8] {\n  padding: 100px 60px 50px;\n}\n.tocca-a-te .overlay-white h2[data-v-4b10c5b8] {\n  font-size: 50px;\n}\n.lm-container[data-v-4b10c5b8] {\n  width: 90%;\n  margin: 0 auto;\n  margin-top: 100px;\n}\n.lm-container h2[data-v-4b10c5b8] {\n  font-size: 40px;\n  font-weight: bolder;\n}\n.lm-container h4[data-v-4b10c5b8] {\n  font-weight: bolder;\n}\n.covid-19 h2[data-v-4b10c5b8] {\n  font-size: 40px;\n}\n.covid-19 h6[data-v-4b10c5b8] {\n  color: #fff;\n}\n.map[data-v-4b10c5b8] {\n  margin-bottom: 40px;\n}\n.map h5[data-v-4b10c5b8] {\n  letter-spacing: 5px;\n  text-transform: uppercase;\n}\n.map p[data-v-4b10c5b8] {\n  line-height: 30px;\n  padding: 20px 0;\n}\n.family[data-v-4b10c5b8] {\n  background-image: url(\"https://mikosushi.it/wp-content/uploads/2020/05/our-family-recipe-book-scaled.jpg\");\n  background-position: center;\n  background-size: cover;\n  height: 700px;\n}\n.family h2[data-v-4b10c5b8] {\n  font-size: 80px;\n  color: #fff;\n  line-height: 150px;\n  padding: 100px 80px;\n}\n.menu[data-v-4b10c5b8] {\n  background-image: url(\"https://mikosushi.it/wp-content/uploads/2020/05/53524919_2039244126372772_5984011031826634360_n.jpg\");\n  background-position: center;\n  background-size: cover;\n  height: 700px;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\nmain[data-v-4b10c5b8] {\n  overflow-x: hidden;\n}\n.lm-jumbotron[data-v-4b10c5b8] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/home-jumbo.jpg */ "./resources/js/assets/img/home-jumbo.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron h2[data-v-4b10c5b8], .lm-jumbotron h3[data-v-4b10c5b8] {\n  letter-spacing: 5px;\n}\n.lm-jumbotron .name[data-v-4b10c5b8] {\n  padding: 40px 0;\n}\n#girl[data-v-4b10c5b8] {\n  width: 500px;\n  border: 4px solid black;\n  padding: 30px;\n}\n.experience h2[data-v-4b10c5b8] {\n  font-size: 50px;\n}\n.experience h4[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.i-nostri-piatti h4[data-v-4b10c5b8], .tocca-a-te h4[data-v-4b10c5b8], .map h4[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.i-nostri-piatti span[data-v-4b10c5b8], .tocca-a-te span[data-v-4b10c5b8], .map span[data-v-4b10c5b8] {\n  font-size: 50px;\n  text-transform: uppercase;\n  margin-top: 20px;\n}\n.i-nostri-piatti .disegno[data-v-4b10c5b8], .tocca-a-te .disegno[data-v-4b10c5b8], .map .disegno[data-v-4b10c5b8] {\n  width: 500px;\n  height: 30px;\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-image-11-2.webp */ "./resources/js/assets/img/butcher-image-11-2.webp")) + ");\n}\n.i-nostri-piatti img[data-v-4b10c5b8], .tocca-a-te img[data-v-4b10c5b8], .map img[data-v-4b10c5b8] {\n  width: 220px;\n  border-radius: 10px;\n  margin: 20px 0;\n}\n.tocca-a-te[data-v-4b10c5b8] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/crediamo-alla-qualità-scaled.jpg */ "./resources/js/assets/img/crediamo-alla-qualità-scaled.jpg")) + ");\n  background-position: top;\n  background-size: cover;\n}\n.tocca-a-te .col-sx[data-v-4b10c5b8] {\n  background-image: url(\"https://mikosushi.it/wp-content/uploads/2020/05/butcher-09.jpg\");\n}\n.tocca-a-te .col-dx[data-v-4b10c5b8] {\n  background-image: url(\"https://mikosushi.it/wp-content/uploads/2020/05/64784400_157513548631681_833729039937920018_n.jpg\");\n}\n.tocca-a-te h2[data-v-4b10c5b8] {\n  line-height: 70px;\n  letter-spacing: 5px;\n}\n.tocca-a-te h6[data-v-4b10c5b8] {\n  color: #9a000e;\n  padding-bottom: 20px;\n}\n.tocca-a-te p[data-v-4b10c5b8] {\n  font-size: 20px;\n  line-height: 40px;\n}\n.tocca-a-te span[data-v-4b10c5b8] {\n  color: #9a000e;\n}\n.tocca-a-te .col-sx[data-v-4b10c5b8], .tocca-a-te .overlay-white[data-v-4b10c5b8] {\n  padding: 100px 60px 50px;\n}\n.tocca-a-te .overlay-white h2[data-v-4b10c5b8] {\n  font-size: 50px;\n}\n.lm-container[data-v-4b10c5b8] {\n  width: 90%;\n  margin: 0 auto;\n  margin-top: 100px;\n}\n.lm-container h2[data-v-4b10c5b8] {\n  font-size: 40px;\n  font-weight: bolder;\n}\n.lm-container h4[data-v-4b10c5b8] {\n  font-weight: bolder;\n}\n.covid-19 h2[data-v-4b10c5b8] {\n  font-size: 40px;\n}\n.covid-19 h6[data-v-4b10c5b8] {\n  color: #fff;\n}\n.map[data-v-4b10c5b8] {\n  margin-bottom: 40px;\n}\n.map h5[data-v-4b10c5b8] {\n  letter-spacing: 5px;\n  text-transform: uppercase;\n}\n.map p[data-v-4b10c5b8] {\n  line-height: 30px;\n  padding: 20px 0;\n}\n.family[data-v-4b10c5b8] {\n  background-image: url(\"https://mikosushi.it/wp-content/uploads/2020/05/our-family-recipe-book-scaled.jpg\");\n  background-position: center;\n  background-size: cover;\n  height: 700px;\n}\n.family h2[data-v-4b10c5b8] {\n  font-size: 80px;\n  color: #fff;\n  line-height: 150px;\n  padding: 100px 80px;\n}\n.menu[data-v-4b10c5b8] {\n  background-image: url(\"https://mikosushi.it/wp-content/uploads/2020/05/53524919_2039244126372772_5984011031826634360_n.jpg\");\n  background-position: center;\n  background-size: cover;\n  height: 700px;\n}", ""]);
 
 // exports
 
@@ -2838,7 +2906,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "header[data-v-494e1ffe] {\n  background-color: black;\n  z-index: 999;\n}\nheader #navbar[data-v-494e1ffe] {\n  height: 80px;\n  transition: all 0.5s;\n}\nheader #navbar li[data-v-494e1ffe] {\n  margin-left: 20px;\n}\nheader #navbar a[data-v-494e1ffe] {\n  color: #919191;\n  text-decoration: none;\n}\n.heigth-50[data-v-494e1ffe] {\n  height: 50px;\n}", ""]);
+exports.push([module.i, "header[data-v-494e1ffe] {\n  background-color: black;\n  z-index: 999;\n}\nheader #navbar[data-v-494e1ffe] {\n  height: 80px;\n  transition: all 0.5s;\n}\nheader #navbar li[data-v-494e1ffe] {\n  margin-left: 20px;\n}\nheader #navbar a[data-v-494e1ffe] {\n  color: #919191;\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -18732,6 +18800,17 @@ module.exports = "/images/P1488251-scaled.jpg?e0a57597f6cad763d68f70705cb4c2ad";
 
 /***/ }),
 
+/***/ "./resources/js/assets/img/butcher-09.jpg":
+/*!************************************************!*\
+  !*** ./resources/js/assets/img/butcher-09.jpg ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/butcher-09.jpg?1af30c4a7add7376453a7860fc197f6e";
+
+/***/ }),
+
 /***/ "./resources/js/assets/img/butcher-image-11-2.webp":
 /*!*********************************************************!*\
   !*** ./resources/js/assets/img/butcher-image-11-2.webp ***!
@@ -18751,6 +18830,17 @@ module.exports = "/images/butcher-image-11-2.webp?650846a16b66bd5b652f5c5f5c2978
 /***/ (function(module, exports) {
 
 module.exports = "/images/crediamo-alla-qualità-scaled.jpg?144dc6b00a20c62212895b1b749565de";
+
+/***/ }),
+
+/***/ "./resources/js/assets/img/delivery_boy-miko.webp":
+/*!********************************************************!*\
+  !*** ./resources/js/assets/img/delivery_boy-miko.webp ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/delivery_boy-miko.webp?dfbe580d054e062e3ca10472a0092538";
 
 /***/ }),
 

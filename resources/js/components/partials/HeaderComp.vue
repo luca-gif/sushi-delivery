@@ -27,7 +27,7 @@ export default {
 
     data(){
         return{
-            isScrolling: false
+
         }
     }
 }
@@ -50,14 +50,8 @@ export default {
             a{
                 color: #919191;
                 text-decoration: none;
-
             }
         }
     }
-
-    .heigth-50{
-        height: 50px;
-    }
-
 
 </style>
