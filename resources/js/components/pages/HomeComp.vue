@@ -9,7 +9,7 @@
                     <h2>Fusion Restaurant</h2>
 
                     <div class="name">
-                        <h1>MIKO</h1>
+                        <h1>SUSHIKO</h1>
                     </div>
 
                     <h3>20 anni di esperienza</h3>

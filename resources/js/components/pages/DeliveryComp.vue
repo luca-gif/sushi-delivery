@@ -59,23 +59,46 @@
 
             <div class="row">
                 <div class="categories col-3">
-                    cat
+
+                    <h4 class="mb-4">Filtra per categoria</h4>
+
+                    <ul class="list-unstyled">
+                        <li v-for="category in arrayFood.categories" :key="category.id" class="mb-3">
+                        <div class="check d-inline-block text-center">+</div> {{category.name}}
+                        </li>
+                    </ul>
+
+                    <h4 class="mt-5 mb-4">Filtra per tipo</h4>
+
+                    <ul class="list-unstyled">
+                        <li v-for="tipo in arrayFood.types" :key="tipo.id" class="mb-3">
+                        <div class="check d-inline-block text-center">+</div> {{tipo.name}}
+                        </li>
+                    </ul>
+
                 </div>
 
-                <div class="sushi col-3">
-                    <div class="card" style="width: 13rem; border-radius: 5px;">
-                        <img class="card-img-top" src="" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="col-9 d-flex flex-wrap">
+                    <div v-for="food in arrayFood.foods" :key="food.id" class="sushi col-3">
+                        <div class="card mb-4" style="width: 12rem; min-height: 26rem; border-radius: 5px;">
 
+                            <img v-if="food.image" class="card-img-top" :src="food.image" :alt="food.name" :title="food.name">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">{{ food.name }}</h5>
+
+                                <p v-if="food.description" class="card-text">{{ food.description }}</p>
+
+                                <h6 class="card-text price">{{ food.price }} €</h6>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
-
 
     </section>
 
@@ -84,7 +107,31 @@
 
 <script>
 export default {
-    name: 'DeliveryComp'
+    name: 'DeliveryComp',
+    data(){
+        return{
+            foodApi: '/api/foods',
+            arrayFood: [],
+        }
+    },
+
+    methods: {
+        getFood(){
+            axios.get(this.foodApi)
+            .then(r=>{
+
+                this.arrayFood = r.data;
+                console.log(this.arrayFood);
+            })
+            .catch(e=>{
+                console.log(e);
+            })
+        }
+    },
+
+    mounted(){
+        this.getFood()
+    }
 }
 </script>
 
@@ -147,9 +194,45 @@ export default {
 
         h2{
             font-size: 50px;
-            font-weight: bolder;
+            font-weight: 900;
             color: $base-color;
             padding: 25px 0;
+            margin-bottom: 60px;
+        }
+
+        .price{
+            color: #29c4a9;
+            font-weight: 900;
+        }
+
+        .card{
+            p{
+                font-size: 13px;
+                letter-spacing: 1px;
+            }
+        }
+
+        .categories{
+            li{
+                color: grey;
+                font-weight: 900;
+            }
+        }
+
+
+        .check{
+            width: 30px;
+            height: 30px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            vertical-align: middle;
+            margin-right: 10px;
+            line-height: 30px;
+            cursor: pointer;
+
+            &:hover{
+                border: 1.5px solid #29c4a9;
+            }
         }
     }
 

@@ -1995,7 +1995,28 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'DeliveryComp'
+  name: 'DeliveryComp',
+  data: function data() {
+    return {
+      foodApi: '/api/foods',
+      arrayFood: []
+    };
+  },
+  methods: {
+    getFood: function getFood() {
+      var _this = this;
+
+      axios.get(this.foodApi).then(function (r) {
+        _this.arrayFood = r.data;
+        console.log(_this.arrayFood);
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getFood();
+  }
 });
 
 /***/ }),
@@ -2167,7 +2188,66 @@ var render = function render() {
         name: "delivery"
       }
     }
-  }, [_vm._v("Come funziona?")])], 1)])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]);
+  }, [_vm._v("Come funziona?")])], 1)])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("section", {
+    staticClass: "delivery"
+  }, [_vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "categories col-3"
+  }, [_c("h4", {
+    staticClass: "mb-4"
+  }, [_vm._v("Filtra per categoria")]), _vm._v(" "), _c("ul", {
+    staticClass: "list-unstyled"
+  }, _vm._l(_vm.arrayFood.categories, function (category) {
+    return _c("li", {
+      key: category.id,
+      staticClass: "mb-3"
+    }, [_c("div", {
+      staticClass: "check d-inline-block text-center"
+    }, [_vm._v("+")]), _vm._v(" " + _vm._s(category.name) + "\n                      ")]);
+  }), 0), _vm._v(" "), _c("h4", {
+    staticClass: "mt-5 mb-4"
+  }, [_vm._v("Filtra per tipo")]), _vm._v(" "), _c("ul", {
+    staticClass: "list-unstyled"
+  }, _vm._l(_vm.arrayFood.types, function (tipo) {
+    return _c("li", {
+      key: tipo.id,
+      staticClass: "mb-3"
+    }, [_c("div", {
+      staticClass: "check d-inline-block text-center"
+    }, [_vm._v("+")]), _vm._v(" " + _vm._s(tipo.name) + "\n                      ")]);
+  }), 0)]), _vm._v(" "), _c("div", {
+    staticClass: "col-9 d-flex flex-wrap"
+  }, _vm._l(_vm.arrayFood.foods, function (food) {
+    return _c("div", {
+      key: food.id,
+      staticClass: "sushi col-3"
+    }, [_c("div", {
+      staticClass: "card mb-4",
+      staticStyle: {
+        width: "12rem",
+        "min-height": "26rem",
+        "border-radius": "5px"
+      }
+    }, [food.image ? _c("img", {
+      staticClass: "card-img-top",
+      attrs: {
+        src: food.image,
+        alt: food.name,
+        title: food.name
+      }
+    }) : _vm._e(), _vm._v(" "), _c("div", {
+      staticClass: "card-body"
+    }, [_c("h5", {
+      staticClass: "card-title"
+    }, [_vm._v(_vm._s(food.name))]), _vm._v(" "), food.description ? _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v(_vm._s(food.description))]) : _vm._e(), _vm._v(" "), _c("h6", {
+      staticClass: "card-text price"
+    }, [_vm._v(_vm._s(food.price) + " €")])])])]);
+  }), 0)])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -2203,41 +2283,13 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("section", {
-    staticClass: "delivery"
-  }, [_c("div", {
+  return _c("div", {
     staticClass: "container d-flex justify-content-center align-items-center"
   }, [_c("div", {
     staticClass: "delivery-title d-flex flex-column align-items-center justify-content-center"
   }, [_c("div", {
     staticClass: "over mt-5"
-  }), _vm._v(" "), _c("h2", [_vm._v("Delivery")])])]), _vm._v(" "), _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "categories col-3"
-  }, [_vm._v("\n                  cat\n              ")]), _vm._v(" "), _c("div", {
-    staticClass: "sushi col-3"
-  }, [_c("div", {
-    staticClass: "card",
-    staticStyle: {
-      width: "13rem",
-      "border-radius": "5px"
-    }
-  }, [_c("img", {
-    staticClass: "card-img-top",
-    attrs: {
-      src: "",
-      alt: "Card image cap"
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_vm._v("Card title")]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("Some quick example text to build on the card title and make up the bulk of the card's content.")])])])])])])]);
+  }), _vm._v(" "), _c("h2", [_vm._v("Delivery")])])]);
 }];
 render._withStripped = true;
 
@@ -2405,7 +2457,7 @@ var staticRenderFns = [function () {
 
   return _c("div", {
     staticClass: "name"
-  }, [_c("h1", [_vm._v("MIKO")])]);
+  }, [_c("h1", [_vm._v("SUSHIKO")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -2704,7 +2756,7 @@ var staticRenderFns = [function () {
     staticClass: "col-3"
   }, [_c("h6", [_vm._v("FOLLOW")]), _vm._v(" "), _c("span", [_vm._v("\n                        IG - FB\n                    ")])])]), _vm._v(" "), _c("div", {
     staticClass: "text-center p-5"
-  }, [_vm._v("\n                ©2022 - Miko Sushi. All right reserved. "), _c("br"), _vm._v("\n                Costruito con ❤ da "), _c("span", {
+  }, [_vm._v("\n                Costruito con ❤ da "), _c("span", {
     staticClass: "higlight"
   }, [_vm._v("Luca")]), _vm._v(".\n            ")])])])]);
 }];
@@ -2848,7 +2900,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".lm-jumbotron[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/P1488251-scaled.jpg */ "./resources/js/assets/img/P1488251-scaled.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron p[data-v-13959f8e] {\n  line-height: 30px;\n}\n.lm-jumbotron .buttons[data-v-13959f8e] {\n  margin-top: 70px;\n}\n.lm-jumbotron a + a[data-v-13959f8e] {\n  text-decoration: underline;\n  font-weight: bolder;\n  margin-left: 20px;\n}\n.lm-jumbotron a + a[data-v-13959f8e]:hover {\n  text-decoration: none;\n}\n.copertura[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-09.jpg */ "./resources/js/assets/img/butcher-09.jpg")) + ");\n}\n.copertura img[data-v-13959f8e] {\n  width: 300px;\n}\n.copertura h2[data-v-13959f8e] {\n  font-weight: bolder;\n}\n.copertura h5[data-v-13959f8e] {\n  color: #9a000e;\n  font-weight: bolder;\n}\n.copertura p[data-v-13959f8e] {\n  color: rgb(174, 174, 174);\n}\n.delivery .over[data-v-13959f8e] {\n  height: 5px;\n  width: 75px;\n  background-color: #000;\n}\n.delivery h2[data-v-13959f8e] {\n  font-size: 50px;\n  font-weight: bolder;\n  color: #9a000e;\n  padding: 25px 0;\n}", ""]);
+exports.push([module.i, ".lm-jumbotron[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/P1488251-scaled.jpg */ "./resources/js/assets/img/P1488251-scaled.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron p[data-v-13959f8e] {\n  line-height: 30px;\n}\n.lm-jumbotron .buttons[data-v-13959f8e] {\n  margin-top: 70px;\n}\n.lm-jumbotron a + a[data-v-13959f8e] {\n  text-decoration: underline;\n  font-weight: bolder;\n  margin-left: 20px;\n}\n.lm-jumbotron a + a[data-v-13959f8e]:hover {\n  text-decoration: none;\n}\n.copertura[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-09.jpg */ "./resources/js/assets/img/butcher-09.jpg")) + ");\n}\n.copertura img[data-v-13959f8e] {\n  width: 300px;\n}\n.copertura h2[data-v-13959f8e] {\n  font-weight: bolder;\n}\n.copertura h5[data-v-13959f8e] {\n  color: #9a000e;\n  font-weight: bolder;\n}\n.copertura p[data-v-13959f8e] {\n  color: rgb(174, 174, 174);\n}\n.delivery .over[data-v-13959f8e] {\n  height: 5px;\n  width: 75px;\n  background-color: #000;\n}\n.delivery h2[data-v-13959f8e] {\n  font-size: 50px;\n  font-weight: 900;\n  color: #9a000e;\n  padding: 25px 0;\n  margin-bottom: 60px;\n}\n.delivery .price[data-v-13959f8e] {\n  color: #29c4a9;\n  font-weight: 900;\n}\n.delivery .card p[data-v-13959f8e] {\n  font-size: 13px;\n  letter-spacing: 1px;\n}\n.delivery .categories li[data-v-13959f8e] {\n  color: grey;\n  font-weight: 900;\n}\n.delivery .check[data-v-13959f8e] {\n  width: 30px;\n  height: 30px;\n  border: 1px solid grey;\n  border-radius: 5px;\n  vertical-align: middle;\n  margin-right: 10px;\n  line-height: 30px;\n  cursor: pointer;\n}\n.delivery .check[data-v-13959f8e]:hover {\n  border: 1.5px solid #29c4a9;\n}", ""]);
 
 // exports
 

@@ -98,7 +98,6 @@
                 </div>
 
                 <div class="text-center p-5">
-                    ©2022 - Miko Sushi. All right reserved. <br>
                     Costruito con ❤ da <span class="higlight">Luca</span>.
                 </div>
 
