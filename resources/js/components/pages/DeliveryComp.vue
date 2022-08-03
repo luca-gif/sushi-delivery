@@ -18,8 +18,8 @@
                 </div>
 
                 <div class="buttons">
-                    <router-link :to="{name: 'delivery'}" class="miko-btn text-white">Inizia ora l'ordine</router-link>
-                    <router-link :to="{name: 'delivery'}" class="text-white">Come funziona?</router-link>
+                    <a href="#delivery" v-smooth-scroll class="miko-btn text-white">Inizia ora l'ordine</a>
+                    <a class="text-white">Come funziona?</a>
                 </div>
 
 
@@ -46,7 +46,7 @@
        </div>
     </div>
 
-    <section class="delivery">
+    <section id="delivery" class="delivery">
         <div class="container d-flex justify-content-center align-items-center">
 
                 <div class="delivery-title d-flex flex-column align-items-center justify-content-center">
@@ -62,7 +62,10 @@
 
                     <ul class="list-unstyled">
                         <h4 class="mb-4">Filtra per categoria</h4>
-                        <li @click="category.id == 4 ? showType = !showType : '' " v-for="category in arrayFood.categories" :key="category.id" class="mb-3">
+                        <li @click="category.id == 4 ? showType = !showType : '' "
+                            v-for="category in arrayFood.categories" :key="category.id"
+                            class="mb-3">
+
                         <div class="check d-inline-block text-center">+</div> {{category.name}}
                         </li>
                     </ul>
@@ -78,8 +81,8 @@
                 </div>
 
                 <div class="col-9">
-                    <div :class="{hideContent : hide}" class="d-flex flex-wrap">
-                        <div v-for="food in arrayFood.foods" :key="food.id" class="sushi col-3">
+                    <div class="d-flex flex-wrap">
+                        <div v-for="food in companiesLoaded" :key="food.id" class="sushi col-3">
                             <div class="card mb-4" style="width: 12rem; min-height: 27rem; border-radius: 5px;">
 
                                 <img v-if="food.image" class="card-img-top" :src="food.image" :alt="food.name" :title="food.name">
@@ -96,26 +99,27 @@
                             </div>
                         </div>
                     </div>
-                    <div @click="hide = false" class="load-more">Carica pi&uacute; prodotti</div>
+                    <div @click="loadMore()" class="load-more">Carica pi&uacute; prodotti</div>
                 </div>
             </div>
 
         </div>
-
     </section>
 
   </main>
 </template>
 
 <script>
+
+
 export default {
     name: 'DeliveryComp',
     data(){
         return{
             foodApi: '/api/foods',
             arrayFood: [],
-            hide: true,
             showType: false,
+            length: 8,
         }
     },
 
@@ -130,6 +134,18 @@ export default {
             .catch(e=>{
                 console.log(e);
             })
+        },
+
+        loadMore(){
+            if (this.length > this.arrayFood.foods.length) return;
+            this.length = this.length + 4;
+        },
+    },
+
+    computed: {
+
+        companiesLoaded() {
+            return this.arrayFood.foods.slice(0, this.length);
         }
     },
 
@@ -164,6 +180,7 @@ export default {
                 text-decoration: none;
             }
         }
+
     }
 
     .copertura{

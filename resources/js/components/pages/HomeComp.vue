@@ -201,7 +201,7 @@
                     </h6>
                     <h6>Scopri come svolgiamo le modalità di consegna e ritiro per far sì che tu possa essere sempre al sicuro.</h6>
                 <div class="p-5">
-                    <router-link :to="{}" class="miko-btn text-white">Scopri di pi&uacute;</router-link></div>
+                    <a href="#" class="miko-btn text-white">Scopri di pi&uacute;</a></div>
                 </div>
             </div>
 
@@ -218,7 +218,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-8">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.0077612748355!2d12.28234142799624!3d44.12446206303605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cbb6e4fe6b78b%3A0x560fa944243cf77!2sMiko%20Sushi%20Cesena!5e0!3m2!1sit!2sit!4v1659385217620!5m2!1sit!2sit" width="700" height="350" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.0077612748355!2d12.28234142799624!3d44.12446206303605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cbb6e4fe6b78b%3A0x560fa944243cf77!2sMiko%20Sushi%20Cesena!5e0!3m2!1sit!2sit!4v1659385217620!5m2!1sit!2sit" width="700" height="350" style="border:0; filter: invert(90%)" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="col-4">
 

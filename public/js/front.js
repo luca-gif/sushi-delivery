@@ -2000,8 +2000,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       foodApi: '/api/foods',
       arrayFood: [],
-      hide: true,
-      showType: false
+      showType: false,
+      length: 8
     };
   },
   methods: {
@@ -2014,6 +2014,15 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (e) {
         console.log(e);
       });
+    },
+    loadMore: function loadMore() {
+      if (this.length > this.arrayFood.foods.length) return;
+      this.length = this.length + 4;
+    }
+  },
+  computed: {
+    companiesLoaded: function companiesLoaded() {
+      return this.arrayFood.foods.slice(0, this.length);
     }
   },
   mounted: function mounted() {
@@ -2176,22 +2185,22 @@ var render = function render() {
     staticClass: "jumbo-container text-white d-flex align-items-center justify-content-center flex-column"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "buttons"
-  }, [_c("router-link", {
+  }, [_c("a", {
+    directives: [{
+      name: "smooth-scroll",
+      rawName: "v-smooth-scroll"
+    }],
     staticClass: "miko-btn text-white",
     attrs: {
-      to: {
-        name: "delivery"
-      }
+      href: "#delivery"
     }
-  }, [_vm._v("Inizia ora l'ordine")]), _vm._v(" "), _c("router-link", {
-    staticClass: "text-white",
+  }, [_vm._v("Inizia ora l'ordine")]), _vm._v(" "), _c("a", {
+    staticClass: "text-white"
+  }, [_vm._v("Come funziona?")])])])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("section", {
+    staticClass: "delivery",
     attrs: {
-      to: {
-        name: "delivery"
-      }
+      id: "delivery"
     }
-  }, [_vm._v("Come funziona?")])], 1)])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("section", {
-    staticClass: "delivery"
   }, [_vm._m(2), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("div", {
@@ -2234,11 +2243,8 @@ var render = function render() {
   })], 2)]), _vm._v(" "), _c("div", {
     staticClass: "col-9"
   }, [_c("div", {
-    staticClass: "d-flex flex-wrap",
-    "class": {
-      hideContent: _vm.hide
-    }
-  }, _vm._l(_vm.arrayFood.foods, function (food) {
+    staticClass: "d-flex flex-wrap"
+  }, _vm._l(_vm.companiesLoaded, function (food) {
     return _c("div", {
       key: food.id,
       staticClass: "sushi col-3"
@@ -2269,7 +2275,7 @@ var render = function render() {
     staticClass: "load-more",
     on: {
       click: function click($event) {
-        _vm.hide = false;
+        return _vm.loadMore();
       }
     }
   }, [_vm._v("Carica piú prodotti")])])])])])]);
@@ -2443,28 +2449,15 @@ var render = function render() {
         name: "delivery"
       }
     }
-  }, [_vm._v("Vai allo shop")])], 1)])])]), _vm._v(" "), _c("div", {
-    staticClass: "row pt-3"
-  }, [_c("div", {
-    staticClass: "col-12 covid-19 text-center text-white"
-  }, [_c("h3", [_vm._v("COVID-19")]), _vm._v(" "), _c("h2", {
-    staticClass: "py-4"
-  }, [_vm._v("COME TI TUTELIAMO")]), _vm._v(" "), _c("h6", [_vm._v("\n                    La tua sicurezza e la cosa che ci sta più a cuore,  soprattutto ora, considerando la situazione che stiamo vivendo.\n                ")]), _vm._v(" "), _c("h6", [_vm._v("Scopri come svolgiamo le modalità di consegna e ritiro per far sì che tu possa essere sempre al sicuro.")]), _vm._v(" "), _c("div", {
-    staticClass: "p-5"
-  }, [_c("router-link", {
-    staticClass: "miko-btn text-white",
-    attrs: {
-      to: {}
-    }
-  }, [_vm._v("Scopri di piú")])], 1)])])]), _vm._v(" "), _c("section", {
+  }, [_vm._v("Vai allo shop")])], 1)])])]), _vm._v(" "), _vm._m(15)]), _vm._v(" "), _c("section", {
     staticClass: "map"
-  }, [_vm._m(15), _vm._v(" "), _c("div", {
+  }, [_vm._m(16), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "row"
-  }, [_vm._m(16), _vm._v(" "), _c("div", {
+  }, [_vm._m(17), _vm._v(" "), _c("div", {
     staticClass: "col-4"
-  }, [_c("h5", [_vm._v("Ti aspettiamo")]), _vm._v(" "), _vm._m(17), _vm._v(" "), _c("div", [_c("router-link", {
+  }, [_c("h5", [_vm._v("Ti aspettiamo")]), _vm._v(" "), _vm._m(18), _vm._v(" "), _c("div", [_c("router-link", {
     staticClass: "miko-btn text-white",
     attrs: {
       to: {
@@ -2473,7 +2466,7 @@ var render = function render() {
     }
   }, [_vm._v("Ordina ora")])], 1), _vm._v(" "), _c("h5", {
     staticClass: "mt-5"
-  }, [_vm._v("Orari per il ritiro")]), _vm._v(" "), _c("h6", [_vm._v("Pranzo: 12:00 – 15:00")]), _vm._v(" "), _c("h6", [_vm._v(" Cena: 19:00 – 23:30 (Da Asporto o Domicilio)")])])])])]), _vm._v(" "), _vm._m(18)]);
+  }, [_vm._v("Orari per il ritiro")]), _vm._v(" "), _c("h6", [_vm._v("Pranzo: 12:00 – 15:00")]), _vm._v(" "), _c("h6", [_vm._v(" Cena: 19:00 – 23:30 (Da Asporto o Domicilio)")])])])])]), _vm._v(" "), _vm._m(19)]);
 };
 
 var staticRenderFns = [function () {
@@ -2614,6 +2607,24 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
+    staticClass: "row pt-3"
+  }, [_c("div", {
+    staticClass: "col-12 covid-19 text-center text-white"
+  }, [_c("h3", [_vm._v("COVID-19")]), _vm._v(" "), _c("h2", {
+    staticClass: "py-4"
+  }, [_vm._v("COME TI TUTELIAMO")]), _vm._v(" "), _c("h6", [_vm._v("\n                    La tua sicurezza e la cosa che ci sta più a cuore,  soprattutto ora, considerando la situazione che stiamo vivendo.\n                ")]), _vm._v(" "), _c("h6", [_vm._v("Scopri come svolgiamo le modalità di consegna e ritiro per far sì che tu possa essere sempre al sicuro.")]), _vm._v(" "), _c("div", {
+    staticClass: "p-5"
+  }, [_c("a", {
+    staticClass: "miko-btn text-white",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Scopri di piú")])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
     staticClass: "d-flex justify-content-between align-items-baseline text-dark py-4"
   }, [_c("div", {
     staticClass: "disegno"
@@ -2628,7 +2639,8 @@ var staticRenderFns = [function () {
     staticClass: "col-8"
   }, [_c("iframe", {
     staticStyle: {
-      border: "0"
+      border: "0",
+      filter: "invert(90%)"
     },
     attrs: {
       src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.0077612748355!2d12.28234142799624!3d44.12446206303605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cbb6e4fe6b78b%3A0x560fa944243cf77!2sMiko%20Sushi%20Cesena!5e0!3m2!1sit!2sit!4v1659385217620!5m2!1sit!2sit",
@@ -18737,6 +18749,17 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/vue2-smooth-scroll/dist/vue-smooth-scroll.min.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/vue2-smooth-scroll/dist/vue-smooth-scroll.min.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():undefined}(this,(function(){return function(t){var e={};function n(o){if(e[o])return e[o].exports;var r=e[o]={i:o,l:!1,exports:{}};return t[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=t,n.c=e,n.d=function(t,e,o){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:o})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)n.d(o,r,function(e){return t[e]}.bind(null,r));return o},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=0)}([function(t,e,n){"use strict";function o(t){return(o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}var r;n.r(e);function i(){return{duration:500,offset:0,container:window,updateHistory:!0,easingFunction:null}}var u=Symbol("smoothScrollCtx");function c(t){var e=t.scrollTo,n=t.offset,o=t.duration,i=t.container,u=t.updateHistory,c=t.hash,a=t.easingFunction;r||(r=window.requestAnimationFrame||function(t){window.setTimeout(t,16)}),u&&window.history.pushState&&location.hash!==c&&window.history.pushState("","",c);var l,s,d=i.scrollTop||window.pageYOffset,p=(s=d,"HTML"===(l=e).nodeName?-s:l.getBoundingClientRect().top+s-parseInt(window.getComputedStyle(l).scrollMarginTop||0,10));p+=n;var y=Date.now(),m="function"==typeof a&&a||f;!function t(){var n=Date.now()-y,c=p;n<o?(c=d+(p-d)*m(n/o),r(t)):u&&location.replace("#"+e.id),i===window?i.scrollTo(0,c):i.scrollTop=c}()}var a={install:function(t,e){t.directive("smooth-scroll",{inserted:function(t,n,r){if("object"===("undefined"==typeof window?"undefined":o(window))&&void 0!==window.pageYOffset){var a=Object.assign({},i());e&&Object.assign(a,e);var f=n.value||{},l=f.duration,s=f.offset,d=f.container,p=f.updateHistory,y=f.easingFunction;l=l||a.duration,s=s||a.offset,d=d||a.container,p=void 0!==p?p:a.updateHistory,y=y||a.easingFunction,"string"==typeof d&&(d=document.querySelector(d));var m=function(t){t.preventDefault();var e=r.data.attrs.href,n=document.getElementById(e.substring(1));n&&c({scrollTo:n,offset:s,duration:l,container:d,updateHistory:p,hash:e,easingFunction:y})};t.addEventListener("click",m),t[u]={clickHandler:m}}},unbind:function(t){t.removeEventListener("click",t[u].clickHandler),t[u]=null}}),t.prototype.$smoothScroll=function(t){return c(Object.assign({},i(),e,t))}}};function f(t){return t<.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1}e.default=a,"undefined"!=typeof window&&window.Vue&&window.Vue.use(a)}])}));
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -19471,15 +19494,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _components_pages_HomeComp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/pages/HomeComp */ "./resources/js/components/pages/HomeComp.vue");
-/* harmony import */ var _components_pages_DeliveryComp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pages/DeliveryComp */ "./resources/js/components/pages/DeliveryComp.vue");
-/* harmony import */ var _components_pages_AboutComp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pages/AboutComp */ "./resources/js/components/pages/AboutComp.vue");
-/* harmony import */ var _components_pages_ContactsComp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pages/ContactsComp */ "./resources/js/components/pages/ContactsComp.vue");
+/* harmony import */ var vue2_smooth_scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-smooth-scroll */ "./node_modules/vue2-smooth-scroll/dist/vue-smooth-scroll.min.js");
+/* harmony import */ var vue2_smooth_scroll__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_smooth_scroll__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_pages_HomeComp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pages/HomeComp */ "./resources/js/components/pages/HomeComp.vue");
+/* harmony import */ var _components_pages_DeliveryComp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pages/DeliveryComp */ "./resources/js/components/pages/DeliveryComp.vue");
+/* harmony import */ var _components_pages_AboutComp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pages/AboutComp */ "./resources/js/components/pages/AboutComp.vue");
+/* harmony import */ var _components_pages_ContactsComp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/pages/ContactsComp */ "./resources/js/components/pages/ContactsComp.vue");
 // importo Vue e VueRouter
+
 
  // dico a Vue di usare VueRouter
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // importo i componenti
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_smooth_scroll__WEBPACK_IMPORTED_MODULE_2___default.a); // importo i componenti
 
 
 
@@ -19487,22 +19514,24 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
+  linkExactActiveClass: "text-danger",
+  //aggiunge la classe in base alla rotta in cui sei
   routes: [{
     path: "/",
     name: "home",
-    component: _components_pages_HomeComp__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _components_pages_HomeComp__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
     path: "/delivery",
     name: "delivery",
-    component: _components_pages_DeliveryComp__WEBPACK_IMPORTED_MODULE_3__["default"]
+    component: _components_pages_DeliveryComp__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
     path: "/chi-siamo",
     name: "about",
-    component: _components_pages_AboutComp__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _components_pages_AboutComp__WEBPACK_IMPORTED_MODULE_5__["default"]
   }, {
     path: "/contatti",
     name: "contacts",
-    component: _components_pages_ContactsComp__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_pages_ContactsComp__WEBPACK_IMPORTED_MODULE_6__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);

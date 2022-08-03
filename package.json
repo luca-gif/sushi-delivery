@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@fontsource/lato": "^4.5.8",
-        "vue-router": "^2.8.1"
+        "vue-router": "^2.8.1",
+        "vue2-smooth-scroll": "^1.6.0"
     }
 }
