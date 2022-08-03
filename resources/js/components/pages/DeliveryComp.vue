@@ -60,41 +60,43 @@
             <div class="row">
                 <div class="categories col-3">
 
-                    <h4 class="mb-4">Filtra per categoria</h4>
-
                     <ul class="list-unstyled">
-                        <li v-for="category in arrayFood.categories" :key="category.id" class="mb-3">
+                        <h4 class="mb-4">Filtra per categoria</h4>
+                        <li @click="category.id == 4 ? showType = !showType : '' " v-for="category in arrayFood.categories" :key="category.id" class="mb-3">
                         <div class="check d-inline-block text-center">+</div> {{category.name}}
                         </li>
                     </ul>
 
-                    <h4 class="mt-5 mb-4">Filtra per tipo</h4>
+                    <ul v-show="showType == true" class="list-unstyled">
+                        <h4  class="mt-5 mb-4">Filtra per tipologia</h4>
 
-                    <ul class="list-unstyled">
-                        <li v-for="tipo in arrayFood.types" :key="tipo.id" class="mb-3">
-                        <div class="check d-inline-block text-center">+</div> {{tipo.name}}
+                        <li v-for="tipology in arrayFood.types" :key="tipology.id" class="mb-3">
+                        <div class="check d-inline-block text-center">+</div> {{tipology.name}}
                         </li>
                     </ul>
 
                 </div>
 
-                <div class="col-9 d-flex flex-wrap">
-                    <div v-for="food in arrayFood.foods" :key="food.id" class="sushi col-3">
-                        <div class="card mb-4" style="width: 12rem; min-height: 26rem; border-radius: 5px;">
+                <div class="col-9">
+                    <div :class="{hideContent : hide}" class="d-flex flex-wrap">
+                        <div v-for="food in arrayFood.foods" :key="food.id" class="sushi col-3">
+                            <div class="card mb-4" style="width: 12rem; min-height: 27rem; border-radius: 5px;">
 
-                            <img v-if="food.image" class="card-img-top" :src="food.image" :alt="food.name" :title="food.name">
+                                <img v-if="food.image" class="card-img-top" :src="food.image" :alt="food.name" :title="food.name">
 
-                            <div class="card-body">
+                                <div class="card-body">
 
-                                <h5 class="card-title">{{ food.name }}</h5>
+                                    <h5 class="card-title">{{ food.name }}</h5>
 
-                                <p v-if="food.description" class="card-text">{{ food.description }}</p>
+                                    <p v-if="food.description" class="card-text">{{ food.description }}</p>
 
-                                <h6 class="card-text price">{{ food.price }} €</h6>
+                                    <h6 class="card-text price">{{ food.price }} €</h6>
 
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div @click="hide = false" class="load-more">Carica pi&uacute; prodotti</div>
                 </div>
             </div>
 
@@ -112,6 +114,8 @@ export default {
         return{
             foodApi: '/api/foods',
             arrayFood: [],
+            hide: true,
+            showType: false,
         }
     },
 
@@ -232,6 +236,31 @@ export default {
 
             &:hover{
                 border: 1.5px solid #29c4a9;
+            }
+        }
+
+        .hideContent{
+            height: 56rem;
+            overflow: hidden;
+        }
+
+        .load-more{
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 900;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            background-color: #3b3b3b;
+            padding: 8px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all .4s;
+
+            &:hover{
+                background-color: #fff;
+                border: 1px solid black;
+                color: black;
             }
         }
     }

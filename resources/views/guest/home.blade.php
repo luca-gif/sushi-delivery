@@ -1,3 +1,8 @@
+<head>
+    <title>SUSHIKO</title>
+    <link href="{{ asset('css/food/style.css') }}" rel="stylesheet">
+</head>
+
 <body>
 
     <div id="app"></div> {{-- importo Vue dentro la home --}}

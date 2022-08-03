@@ -98,7 +98,7 @@
                 </div>
 
                 <div class="text-center p-5">
-                    Costruito con ❤ da <span class="higlight">Luca</span>.
+                    Made with ❤ by <span class="higlight">Luca</span>.
                 </div>
 
             </div>

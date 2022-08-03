@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -28,10 +28,12 @@
                 <a class="navbar-brand" href="{{ route('home') }}">
                     Vai alla pagina pubblica
                 </a>
-                <a class="navbar-brand" href="{{ route('admin.sushi.index') }}">
+                <a class="{{ Route::currentRouteName() == 'admin.sushi.index' ? 'text-danger' : '' }} navbar-brand"
+                    href="{{ route('admin.sushi.index') }}">
                     Food
                 </a>
-                <a class="navbar-brand" href="{{ route('admin.sushi.create') }}">
+                <a class="{{ Route::currentRouteName() == 'admin.sushi.create' ? 'text-danger' : '' }} navbar-brand"
+                    href="{{ route('admin.sushi.create') }}">
                     Inserisci nuovo piatto
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
