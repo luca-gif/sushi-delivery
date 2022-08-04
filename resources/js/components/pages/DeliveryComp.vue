@@ -62,8 +62,9 @@
 
                     <ul class="list-unstyled">
                         <h4 class="mb-4">Filtra per categoria</h4>
-                        <li @click="category.id == 4 ? showType = !showType : '' "
-                            v-for="category in arrayFood.categories" :key="category.id"
+                        <li @click="category.id == 4 ? showType = !showType : '',
+                         getFoodByCategory()"
+                            v-for="category in arrayCategory" :key="category.id"
                             class="mb-3">
 
                         <div class="check d-inline-block text-center">+</div> {{category.name}}
@@ -71,10 +72,11 @@
                     </ul>
 
                     <ul v-show="showType == true" class="list-unstyled">
-                        <h4  class="mt-5 mb-4">Filtra per tipologia</h4>
 
-                        <li v-for="tipology in arrayFood.types" :key="tipology.id" class="mb-3">
+                        <h4  class="mt-5 mb-4">Filtra per tipologia</h4>
+                        <li v-for="tipology in arrayType" :key="tipology.id" class="mb-3">
                         <div class="check d-inline-block text-center">+</div> {{tipology.name}}
+
                         </li>
                     </ul>
 
@@ -85,14 +87,14 @@
                         <div v-for="food in companiesLoaded" :key="food.id" class="sushi col-3">
                             <div class="card mb-4" style="width: 12rem; min-height: 27rem; border-radius: 5px;">
 
-                                <img v-if="food.image" class="card-img-top" :src="food.image" :alt="food.name" :title="food.name">
+                                <router-link :to="{name: 'detail', params:{slug: food.slug}}">
+                                    <img v-if="food.image" class="card-img-top" :src="food.image" :alt="food.name" :title="food.name">
+                                </router-link>
 
                                 <div class="card-body">
 
                                     <h5 class="card-title">{{ food.name }}</h5>
-
                                     <p v-if="food.description" class="card-text">{{ food.description }}</p>
-
                                     <h6 class="card-text price">{{ food.price }} €</h6>
 
                                 </div>
@@ -118,6 +120,8 @@ export default {
         return{
             foodApi: '/api/foods',
             arrayFood: [],
+            arrayCategory: [],
+            arrayType: [],
             showType: false,
             length: 8,
         }
@@ -128,16 +132,32 @@ export default {
             axios.get(this.foodApi)
             .then(r=>{
 
-                this.arrayFood = r.data;
-                console.log(this.arrayFood);
+                this.arrayFood = r.data.foods;
+                this.arrayCategory = r.data.categories;
+                this.arrayType = r.data.types;
+                // console.log(this.arrayFood);
             })
             .catch(e=>{
                 console.log(e);
             })
         },
 
+        getFoodByCategory(){
+
+            axios.get(this.foodApi + '/food-category/' + 'sushi') // aggiungere slug dinamico;
+            .then(r=>{
+
+                this.arrayFood = r.data.foods;
+                console.log(this.arrayFood);
+            })
+            .catch(e=>{
+                console.log(e);
+            })
+
+        },
+
         loadMore(){
-            if (this.length > this.arrayFood.foods.length) return;
+            if (this.length > this.arrayFood.length) return;
             this.length = this.length + 4;
         },
     },
@@ -145,7 +165,7 @@ export default {
     computed: {
 
         companiesLoaded() {
-            return this.arrayFood.foods.slice(0, this.length);
+            return this.arrayFood.slice(0, this.length);
         }
     },
 
@@ -237,6 +257,7 @@ export default {
             li{
                 color: grey;
                 font-weight: 900;
+                cursor: pointer;
             }
         }
 

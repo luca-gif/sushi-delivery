@@ -6,14 +6,16 @@ import VueSmoothScroll from "vue2-smooth-scroll";
 
 // dico a Vue di usare VueRouter
 Vue.use(VueRouter);
+
+// dico a Vue di usare VueRouter
 Vue.use(VueSmoothScroll);
 
 // importo i componenti
-
 import HomeComp from "./components/pages/HomeComp";
 import DeliveryComp from "./components/pages/DeliveryComp";
 import AboutComp from "./components/pages/AboutComp";
 import ContactsComp from "./components/pages/ContactsComp";
+import FoodDetail from "./components/pages/FoodDetail";
 
 const router = new VueRouter({
     mode: "history",
@@ -37,6 +39,11 @@ const router = new VueRouter({
             path: "/contatti",
             name: "contacts",
             component: ContactsComp,
+        },
+        {
+            path: "/immagine-piatto/:slug",
+            name: "detail",
+            component: FoodDetail,
         },
     ],
 });
