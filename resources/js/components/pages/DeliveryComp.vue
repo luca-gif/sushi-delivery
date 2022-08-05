@@ -50,7 +50,7 @@
         <div class="container d-flex justify-content-center align-items-center">
 
                 <div class="delivery-title d-flex flex-column align-items-center justify-content-center">
-                    <div class="over mt-5"></div>
+                    <div class="over-line mt-5"></div>
                     <h2>Delivery</h2>
                 </div>
         </div>
@@ -60,48 +60,20 @@
             <div class="row">
                 <div class="categories col-3">
 
-                    <ul class="list-unstyled">
-                        <h4 class="mb-4">Filtra per categoria</h4>
-                        <li @click="category.id == 4 ? showType = !showType : '',
-                         getFoodByCategory()"
-                            v-for="category in arrayCategory" :key="category.id"
-                            class="mb-3">
-
-                        <div class="check d-inline-block text-center">+</div> {{category.name}}
-                        </li>
-                    </ul>
-
-                    <ul v-show="showType == true" class="list-unstyled">
-
-                        <h4  class="mt-5 mb-4">Filtra per tipologia</h4>
-                        <li v-for="tipology in arrayType" :key="tipology.id" class="mb-3">
-                        <div class="check d-inline-block text-center">+</div> {{tipology.name}}
-
-                        </li>
-                    </ul>
+                    <sidebar-comp
+                    :categories="arrayCategory"
+                    :tipologies="arrayType"
+                    @categorySlug = 'categorySlug'
+                    />
 
                 </div>
 
                 <div class="col-9">
-                    <div class="d-flex flex-wrap">
-                        <div v-for="food in companiesLoaded" :key="food.id" class="sushi col-3">
-                            <div class="card mb-4" style="width: 12rem; min-height: 27rem; border-radius: 5px;">
 
-                                <router-link :to="{name: 'detail', params:{slug: food.slug}}">
-                                    <img v-if="food.image" class="card-img-top" :src="food.image" :alt="food.name" :title="food.name">
-                                </router-link>
+                       <food-comp
+                       :foods="arrayFood"
+                       />
 
-                                <div class="card-body">
-
-                                    <h5 class="card-title">{{ food.name }}</h5>
-                                    <p v-if="food.description" class="card-text">{{ food.description }}</p>
-                                    <h6 class="card-text price">{{ food.price }} €</h6>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div @click="loadMore()" class="load-more">Carica pi&uacute; prodotti</div>
                 </div>
             </div>
 
@@ -112,9 +84,12 @@
 </template>
 
 <script>
+import FoodComp from './FoodComp.vue';
+import SidebarComp from './SidebarComp.vue';
 
 
 export default {
+  components: {FoodComp, SidebarComp},
     name: 'DeliveryComp',
     data(){
         return{
@@ -123,7 +98,8 @@ export default {
             arrayCategory: [],
             arrayType: [],
             showType: false,
-            length: 8,
+            slugCategory: '',
+
         }
     },
 
@@ -144,7 +120,7 @@ export default {
 
         getFoodByCategory(){
 
-            axios.get(this.foodApi + '/food-category/' + 'sushi') // aggiungere slug dinamico;
+            axios.get(this.foodApi + '/food-category/' + this.slugCategory ) // aggiungere slug dinamico;
             .then(r=>{
 
                 this.arrayFood = r.data.foods;
@@ -153,19 +129,11 @@ export default {
             .catch(e=>{
                 console.log(e);
             })
-
         },
 
-        loadMore(){
-            if (this.length > this.arrayFood.length) return;
-            this.length = this.length + 4;
-        },
-    },
-
-    computed: {
-
-        companiesLoaded() {
-            return this.arrayFood.slice(0, this.length);
+        categorySlug(slug){
+            this.slugCategory = slug
+            this.getFoodByCategory();
         }
     },
 
@@ -227,7 +195,7 @@ export default {
 
     .delivery{
 
-        .over{
+        .over-line{
             height: 5px;
             width: 75px;
             background-color: #000;
@@ -241,66 +209,6 @@ export default {
             margin-bottom: 60px;
         }
 
-        .price{
-            color: #29c4a9;
-            font-weight: 900;
-        }
-
-        .card{
-            p{
-                font-size: 13px;
-                letter-spacing: 1px;
-            }
-        }
-
-        .categories{
-            li{
-                color: grey;
-                font-weight: 900;
-                cursor: pointer;
-            }
-        }
-
-
-        .check{
-            width: 30px;
-            height: 30px;
-            border: 1px solid grey;
-            border-radius: 5px;
-            vertical-align: middle;
-            margin-right: 10px;
-            line-height: 30px;
-            cursor: pointer;
-
-            &:hover{
-                border: 1.5px solid #29c4a9;
-            }
-        }
-
-        .hideContent{
-            height: 56rem;
-            overflow: hidden;
-        }
-
-        .load-more{
-            text-transform: uppercase;
-            font-size: 14px;
-            font-weight: 900;
-            width: 100%;
-            text-align: center;
-            color: #fff;
-            background-color: #3b3b3b;
-            padding: 8px 0;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all .4s;
-
-            &:hover{
-                background-color: #fff;
-                border: 1px solid black;
-                color: black;
-            }
-        }
     }
 
 
