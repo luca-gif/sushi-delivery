@@ -3,7 +3,7 @@
 
     <ul class="list-unstyled">
         <h4 class="mb-4">Filtra per categoria</h4>
-        <li @click="category.id == 4 ? showType = !showType : '',
+        <li @click="category.id == 4 ? showType = !showType : showType = false,
             $emit('categorySlug', category.slug)"
 
             v-for="category in categories" :key="category.id"
@@ -16,10 +16,12 @@
     <ul v-show="showType == true" class="list-unstyled">
 
         <h4  class="mt-5 mb-4">Filtra per tipologia</h4>
-        <li v-for="tipology in tipologies" :key="tipology.id" class="mb-3">
-        <div class="check d-inline-block text-center">+</div> {{tipology.name}}
 
+        <li v-for="tipology in tipologies" :key="tipology.id" class="mb-3"
+            @click="$emit('tipologySlug', tipology.slug)">
+            <div class="check d-inline-block text-center">+</div> {{tipology.name}}
         </li>
+
     </ul>
 
   </div>
@@ -33,7 +35,7 @@ export default {
         tipologies: Array
     },
 
-     data(){
+    data(){
         return{
             showType: false,
         }

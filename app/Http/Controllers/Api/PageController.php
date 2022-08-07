@@ -34,4 +34,12 @@ class PageController extends Controller
 
         return response()->json($category);
     }
+
+    public function getFoodByType($slug_type)
+    {
+        // Prendo una sola tipologia, ma mi dai tutti i cibi inerenti a quella tipologia.
+        $type = Type::where('slug', $slug_type)->with('foods')->first();
+
+        return response()->json($type);
+    }
 }

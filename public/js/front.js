@@ -2011,10 +2011,34 @@ __webpack_require__.r(__webpack_exports__);
       arrayCategory: [],
       arrayType: [],
       showType: false,
-      slugCategory: ''
+      slugCategory: '',
+      slugType: '',
+      cart: [],
+      totalPrice: 0,
+      counter: 0
     };
   },
   methods: {
+    addProductToCart: function addProductToCart(product) {
+      this.cart.push(product);
+      this.counter = this.cart.length;
+      this.showFinalPrice(); // console.log(this.cart)
+    },
+    showFinalPrice: function showFinalPrice() {
+      this.totalPrice = this.itemsSum();
+    },
+    itemsSum: function itemsSum() {
+      var totalSum = 0;
+
+      for (var i = 0; i < this.cart.length; i++) {
+        totalSum += this.cart[i].price; // console.log(this.cart);
+      }
+
+      return totalSum;
+    },
+    ricevoIlProdottoCliccato: function ricevoIlProdottoCliccato(food) {
+      this.addProductToCart(food);
+    },
     getFood: function getFood() {
       var _this = this;
 
@@ -2029,10 +2053,19 @@ __webpack_require__.r(__webpack_exports__);
     getFoodByCategory: function getFoodByCategory() {
       var _this2 = this;
 
-      axios.get(this.foodApi + '/food-category/' + this.slugCategory) // aggiungere slug dinamico;
-      .then(function (r) {
+      axios.get(this.foodApi + '/food-category/' + this.slugCategory).then(function (r) {
         _this2.arrayFood = r.data.foods;
         console.log(_this2.arrayFood);
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    },
+    getFoodByType: function getFoodByType() {
+      var _this3 = this;
+
+      axios.get(this.foodApi + '/food-type/' + this.slugType).then(function (r) {
+        _this3.arrayFood = r.data.foods;
+        console.log(_this3.arrayFood);
       })["catch"](function (e) {
         console.log(e);
       });
@@ -2040,6 +2073,10 @@ __webpack_require__.r(__webpack_exports__);
     categorySlug: function categorySlug(slug) {
       this.slugCategory = slug;
       this.getFoodByCategory();
+    },
+    tipologySlug: function tipologySlug(slug) {
+      this.slugType = slug;
+      this.getFoodByType();
     }
   },
   mounted: function mounted() {
@@ -2313,7 +2350,7 @@ var render = function render() {
       id: "delivery"
     }
   }, [_vm._m(2), _vm._v(" "), _c("div", {
-    staticClass: "container"
+    staticClass: "container food"
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
@@ -2324,15 +2361,35 @@ var render = function render() {
       tipologies: _vm.arrayType
     },
     on: {
-      categorySlug: _vm.categorySlug
+      categorySlug: _vm.categorySlug,
+      tipologySlug: _vm.tipologySlug
     }
   })], 1), _vm._v(" "), _c("div", {
     staticClass: "col-9"
   }, [_c("food-comp", {
     attrs: {
       foods: _vm.arrayFood
+    },
+    on: {
+      bottoneCliccato: _vm.ricevoIlProdottoCliccato
     }
-  })], 1)])])])]);
+  })], 1)])])]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.cart.length > 0,
+      expression: "cart.length > 0"
+    }],
+    staticClass: "checkout"
+  }, [_c("div", {
+    attrs: {
+      id: "total"
+    }
+  }, [_vm._v("Totale: € " + _vm._s(_vm.totalPrice))]), _vm._v(" "), _c("div", {
+    attrs: {
+      id: "counter"
+    }
+  }, [_vm._v("Quantità: " + _vm._s(_vm.counter))])])]);
 };
 
 var staticRenderFns = [function () {
@@ -2409,31 +2466,42 @@ var render = function render() {
         "min-height": "27rem",
         "border-radius": "5px"
       }
-    }, [_c("router-link", {
-      attrs: {
-        to: {
-          name: "detail",
-          params: {
-            slug: food.slug
-          }
-        }
-      }
     }, [food.image ? _c("img", {
-      staticClass: "card-img-top",
+      staticClass: "image card-img-top",
       attrs: {
         src: food.image,
         alt: food.name,
         title: food.name
       }
-    }) : _vm._e()]), _vm._v(" "), _c("div", {
+    }) : _c("img", {
+      staticClass: "card-img-top",
+      attrs: {
+        src: __webpack_require__(/*! ../../assets/img/image-not-found.jpg */ "./resources/js/assets/img/image-not-found.jpg"),
+        alt: "Image not found"
+      }
+    }), _vm._v(" "), _c("div", {
       staticClass: "card-body"
     }, [_c("h5", {
       staticClass: "card-title"
     }, [_vm._v(_vm._s(food.name))]), _vm._v(" "), food.description ? _c("p", {
       staticClass: "card-text"
-    }, [_vm._v(_vm._s(food.description))]) : _vm._e(), _vm._v(" "), _c("h6", {
+    }, [_vm._v(_vm._s(food.description))]) : _vm._e(), _vm._v(" "), _c("div", {
+      staticClass: "checkout d-flex justify-content-between align-items-center"
+    }, [_c("h6", {
       staticClass: "card-text price"
-    }, [_vm._v(_vm._s(food.price) + " €")])])], 1)]);
+    }, [_vm._v(_vm._s(food.price) + " €")]), _vm._v(" "), _c("div", {
+      staticClass: "cart",
+      on: {
+        click: function click($event) {
+          return _vm.$emit("bottoneCliccato", food);
+        }
+      }
+    }, [_c("img", {
+      attrs: {
+        src: __webpack_require__(/*! ../../assets/img/cart.jpg */ "./resources/js/assets/img/cart.jpg"),
+        alt: "shopping-cart"
+      }
+    })])])])])]);
   }), _vm._v(" "), _c("div", {
     staticClass: "load-more",
     on: {
@@ -2636,7 +2704,7 @@ var staticRenderFns = [function () {
 
   return _c("div", {
     staticClass: "name"
-  }, [_c("h1", [_vm._v("SUSHIKO")])]);
+  }, [_c("h1", [_vm._v("SUSHINO")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -2862,7 +2930,7 @@ var render = function render() {
       staticClass: "mb-3",
       on: {
         click: function click($event) {
-          category.id == 4 ? _vm.showType = !_vm.showType : "", _vm.$emit("categorySlug", category.slug);
+          category.id == 4 ? _vm.showType = !_vm.showType : _vm.showType = false, _vm.$emit("categorySlug", category.slug);
         }
       }
     }, [_c("div", {
@@ -2881,10 +2949,15 @@ var render = function render() {
   }, [_vm._v("Filtra per tipologia")]), _vm._v(" "), _vm._l(_vm.tipologies, function (tipology) {
     return _c("li", {
       key: tipology.id,
-      staticClass: "mb-3"
+      staticClass: "mb-3",
+      on: {
+        click: function click($event) {
+          return _vm.$emit("tipologySlug", tipology.slug);
+        }
+      }
     }, [_c("div", {
       staticClass: "check d-inline-block text-center"
-    }, [_vm._v("+")]), _vm._v(" " + _vm._s(tipology.name) + "\n\n      ")]);
+    }, [_vm._v("+")]), _vm._v(" " + _vm._s(tipology.name) + "\n      ")]);
   })], 2)]);
 };
 
@@ -2999,7 +3072,7 @@ var staticRenderFns = [function () {
     staticClass: "col-3"
   }, [_c("h6", [_vm._v("DOVE SIAMO")]), _vm._v(" "), _c("span", {
     staticClass: "text-muted"
-  }, [_vm._v("\n                        Via Emilia Levante, 1655, "), _c("br"), _vm._v("\n                        47521 Cesena FC\n                    ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        Via Maddalena, "), _c("br"), _vm._v("\n                        20019 Milano\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "col-3"
   }, [_c("h6", [_vm._v("ORARIO")]), _vm._v(" "), _c("span", {
     staticClass: "text-muted"
@@ -3007,7 +3080,7 @@ var staticRenderFns = [function () {
     staticClass: "col-3"
   }, [_c("h6", [_vm._v("INFO")]), _vm._v(" "), _c("span", {
     staticClass: "higlight"
-  }, [_vm._v("\n                        0547 304168 "), _c("br"), _vm._v("\n                        info@mikosushi.com\n                    ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        0000 000000 "), _c("br"), _vm._v("\n                        info@sushino.com\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "col-3"
   }, [_c("h6", [_vm._v("FOLLOW")]), _vm._v(" "), _c("span", [_vm._v("\n                        IG - FB\n                    ")])])]), _vm._v(" "), _c("div", {
     staticClass: "text-center p-5"
@@ -3155,7 +3228,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".lm-jumbotron[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/P1488251-scaled.jpg */ "./resources/js/assets/img/P1488251-scaled.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron p[data-v-13959f8e] {\n  line-height: 30px;\n}\n.lm-jumbotron .buttons[data-v-13959f8e] {\n  margin-top: 70px;\n}\n.lm-jumbotron a + a[data-v-13959f8e] {\n  text-decoration: underline;\n  font-weight: bolder;\n  margin-left: 20px;\n}\n.lm-jumbotron a + a[data-v-13959f8e]:hover {\n  text-decoration: none;\n}\n.copertura[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-09.jpg */ "./resources/js/assets/img/butcher-09.jpg")) + ");\n}\n.copertura img[data-v-13959f8e] {\n  width: 300px;\n}\n.copertura h2[data-v-13959f8e] {\n  font-weight: bolder;\n}\n.copertura h5[data-v-13959f8e] {\n  color: #9a000e;\n  font-weight: bolder;\n}\n.copertura p[data-v-13959f8e] {\n  color: rgb(174, 174, 174);\n}\n.delivery .over-line[data-v-13959f8e] {\n  height: 5px;\n  width: 75px;\n  background-color: #000;\n}\n.delivery h2[data-v-13959f8e] {\n  font-size: 50px;\n  font-weight: 900;\n  color: #9a000e;\n  padding: 25px 0;\n  margin-bottom: 60px;\n}", ""]);
+exports.push([module.i, ".lm-jumbotron[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/P1488251-scaled.jpg */ "./resources/js/assets/img/P1488251-scaled.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron p[data-v-13959f8e] {\n  line-height: 30px;\n}\n.lm-jumbotron .buttons[data-v-13959f8e] {\n  margin-top: 70px;\n}\n.lm-jumbotron a + a[data-v-13959f8e] {\n  text-decoration: underline;\n  font-weight: bolder;\n  margin-left: 20px;\n}\n.lm-jumbotron a + a[data-v-13959f8e]:hover {\n  text-decoration: none;\n}\n.copertura[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-09.jpg */ "./resources/js/assets/img/butcher-09.jpg")) + ");\n}\n.copertura img[data-v-13959f8e] {\n  width: 300px;\n}\n.copertura h2[data-v-13959f8e] {\n  font-weight: bolder;\n}\n.copertura h5[data-v-13959f8e] {\n  color: #9a000e;\n  font-weight: bolder;\n}\n.copertura p[data-v-13959f8e] {\n  color: rgb(174, 174, 174);\n}\n.delivery .over-line[data-v-13959f8e] {\n  height: 5px;\n  width: 75px;\n  background-color: #000;\n}\n.delivery h2[data-v-13959f8e] {\n  font-size: 50px;\n  font-weight: 900;\n  color: #9a000e;\n  padding: 25px 0;\n  margin-bottom: 60px;\n}\n.checkout[data-v-13959f8e] {\n  position: fixed;\n  right: 0;\n  bottom: 0;\n  background-color: aquamarine;\n  width: 250px;\n  height: 120px;\n  padding: 10px;\n  margin: 20px;\n  border-radius: 5px;\n  z-index: 999;\n}", ""]);
 
 // exports
 
@@ -3174,7 +3247,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".price[data-v-1f62c5a3] {\n  color: #29c4a9;\n  font-weight: 900;\n}\n.card p[data-v-1f62c5a3] {\n  font-size: 13px;\n  letter-spacing: 1px;\n}\n.load-more[data-v-1f62c5a3] {\n  text-transform: uppercase;\n  font-size: 14px;\n  font-weight: 900;\n  width: 100%;\n  text-align: center;\n  color: #fff;\n  background-color: #3b3b3b;\n  padding: 8px 0;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: all 0.4s;\n}\n.load-more[data-v-1f62c5a3]:hover {\n  background-color: #fff;\n  border: 1px solid black;\n  color: black;\n}", ""]);
+exports.push([module.i, ".price[data-v-1f62c5a3] {\n  color: #29c4a9;\n  font-weight: 900;\n}\n.card p[data-v-1f62c5a3] {\n  font-size: 13px;\n  letter-spacing: 1px;\n}\n.load-more[data-v-1f62c5a3] {\n  text-transform: uppercase;\n  font-size: 14px;\n  font-weight: 900;\n  width: 100%;\n  text-align: center;\n  color: #fff;\n  background-color: #3b3b3b;\n  padding: 8px 0;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: all 0.4s;\n}\n.load-more[data-v-1f62c5a3]:hover {\n  background-color: #fff;\n  border: 1px solid black;\n  color: black;\n}\n.image[data-v-1f62c5a3] {\n  transition: all 0.5s;\n}\n.image[data-v-1f62c5a3]:active {\n  transform: scale(2.5);\n  z-index: 999;\n}\n.checkout img[data-v-1f62c5a3] {\n  width: 40px;\n  border-radius: 50%;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -19287,6 +19360,17 @@ module.exports = "/images/butcher-image-11-2.webp?650846a16b66bd5b652f5c5f5c2978
 
 /***/ }),
 
+/***/ "./resources/js/assets/img/cart.jpg":
+/*!******************************************!*\
+  !*** ./resources/js/assets/img/cart.jpg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/cart.jpg?246a5979bd2f52ceb382e8a25c4e5e54";
+
+/***/ }),
+
 /***/ "./resources/js/assets/img/crediamo-alla-qualità-scaled.jpg":
 /*!******************************************************************!*\
   !*** ./resources/js/assets/img/crediamo-alla-qualità-scaled.jpg ***!
@@ -19317,6 +19401,17 @@ module.exports = "/images/delivery_boy-miko.webp?dfbe580d054e062e3ca10472a009253
 /***/ (function(module, exports) {
 
 module.exports = "/images/home-jumbo.jpg?7c0c272b2f8a2e6f9e70424c3c9938c8";
+
+/***/ }),
+
+/***/ "./resources/js/assets/img/image-not-found.jpg":
+/*!*****************************************************!*\
+  !*** ./resources/js/assets/img/image-not-found.jpg ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/image-not-found.jpg?998f5acae4f66a8f3831034b3af4bdc0";
 
 /***/ }),
 

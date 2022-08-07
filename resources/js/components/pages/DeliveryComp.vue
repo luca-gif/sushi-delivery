@@ -22,7 +22,6 @@
                     <a class="text-white">Come funziona?</a>
                 </div>
 
-
             </div>
         </div>
     </div>
@@ -55,7 +54,7 @@
                 </div>
         </div>
 
-        <div class="container">
+        <div class="container food">
 
             <div class="row">
                 <div class="categories col-3">
@@ -64,6 +63,7 @@
                     :categories="arrayCategory"
                     :tipologies="arrayType"
                     @categorySlug = 'categorySlug'
+                    @tipologySlug = 'tipologySlug'
                     />
 
                 </div>
@@ -72,6 +72,7 @@
 
                        <food-comp
                        :foods="arrayFood"
+                       @bottoneCliccato="ricevoIlProdottoCliccato"
                        />
 
                 </div>
@@ -79,6 +80,11 @@
 
         </div>
     </section>
+
+    <div v-show="cart.length > 0" class="checkout">
+        <div id="total">Totale: € {{totalPrice}}</div>
+        <div id="counter">Quantità: {{counter}}</div>
+    </div>
 
   </main>
 </template>
@@ -99,11 +105,38 @@ export default {
             arrayType: [],
             showType: false,
             slugCategory: '',
-
+            slugType: '',
+            cart: [],
+            totalPrice: 0,
+            counter: 0,
         }
     },
 
     methods: {
+        addProductToCart(product){
+            this.cart.push(product);
+            this.counter = this.cart.length;
+            this.showFinalPrice();
+            // console.log(this.cart)
+        },
+
+        showFinalPrice(){
+            this.totalPrice = this.itemsSum();
+        },
+
+        itemsSum(){
+            let totalSum = 0;
+            for(let i = 0; i < this.cart.length; i++){
+                totalSum += this.cart[i].price;
+                // console.log(this.cart);
+            }
+                return totalSum;
+        },
+
+        ricevoIlProdottoCliccato(food){
+            this.addProductToCart(food)
+        },
+
         getFood(){
             axios.get(this.foodApi)
             .then(r=>{
@@ -120,7 +153,20 @@ export default {
 
         getFoodByCategory(){
 
-            axios.get(this.foodApi + '/food-category/' + this.slugCategory ) // aggiungere slug dinamico;
+            axios.get(this.foodApi + '/food-category/' + this.slugCategory )
+            .then(r=>{
+
+                this.arrayFood = r.data.foods;
+                console.log(this.arrayFood);
+            })
+            .catch(e=>{
+                console.log(e);
+            })
+        },
+
+        getFoodByType(){
+
+            axios.get(this.foodApi + '/food-type/' + this.slugType )
             .then(r=>{
 
                 this.arrayFood = r.data.foods;
@@ -134,7 +180,12 @@ export default {
         categorySlug(slug){
             this.slugCategory = slug
             this.getFoodByCategory();
-        }
+        },
+
+        tipologySlug(slug){
+            this.slugType = slug
+            this.getFoodByType();
+        },
     },
 
     mounted(){
@@ -209,6 +260,19 @@ export default {
             margin-bottom: 60px;
         }
 
+    }
+
+    .checkout{
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        background-color: aquamarine;
+        width: 250px;
+        height: 120px;
+        padding: 10px;
+        margin: 20px;
+        border-radius: 5px;
+        z-index: 999;
     }
 
 

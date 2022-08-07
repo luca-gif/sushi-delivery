@@ -67,8 +67,8 @@
                     <div class="col-3">
                         <h6>DOVE SIAMO</h6>
                         <span class="text-muted">
-                            Via Emilia Levante, 1655, <br>
-                            47521 Cesena FC
+                            Via Maddalena, <br>
+                            20019 Milano
                         </span>
                     </div>
 
@@ -84,8 +84,8 @@
                     <div class="col-3">
                         <h6>INFO</h6>
                         <span class="higlight">
-                            0547 304168 <br>
-                            info@mikosushi.com
+                            0000 000000 <br>
+                            info@sushino.com
                         </span>
                     </div>
 

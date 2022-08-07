@@ -26,4 +26,5 @@ Route::namespace('Api')
         Route::get('/', 'PageController@index');
         Route::get('/{slug}', 'PageController@show');
         Route::get('/food-category/{slug}', 'PageController@getFoodByCategory');
+        Route::get('/food-type/{slug}', 'PageController@getFoodByType');
     });

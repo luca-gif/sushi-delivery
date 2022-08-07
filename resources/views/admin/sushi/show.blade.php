@@ -14,11 +14,11 @@
                 <h6 class="card-title">€ {{ $food->price }}</h6>
                 <p class="card-text">{{ $food->description }}</p>
 
+
                 <a href="{{ route('admin.sushi.index') }}" class="btn btn-outline-primary">Torna indietro</a>
                 <a href="{{ route('admin.sushi.edit', $food) }}" class="btn btn-outline-success">Modifica</a>
             </div>
         </div>
-
 
     </div>
 @endsection
