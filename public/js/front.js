@@ -2015,14 +2015,15 @@ __webpack_require__.r(__webpack_exports__);
       slugType: '',
       cart: [],
       totalPrice: 0,
-      counter: 0
+      counter: 0,
+      showCart: false
     };
   },
   methods: {
     addProductToCart: function addProductToCart(product) {
       this.cart.push(product);
       this.counter = this.cart.length;
-      this.showFinalPrice(); // console.log(this.cart)
+      this.showFinalPrice();
     },
     showFinalPrice: function showFinalPrice() {
       this.totalPrice = this.itemsSum();
@@ -2031,13 +2032,13 @@ __webpack_require__.r(__webpack_exports__);
       var totalSum = 0;
 
       for (var i = 0; i < this.cart.length; i++) {
-        totalSum += this.cart[i].price; // console.log(this.cart);
+        totalSum += parseFloat(this.cart[i].price);
       }
 
       return totalSum;
     },
-    ricevoIlProdottoCliccato: function ricevoIlProdottoCliccato(food) {
-      this.addProductToCart(food);
+    ricevoIlProdottoCliccato: function ricevoIlProdottoCliccato(product) {
+      this.addProductToCart(product);
     },
     getFood: function getFood() {
       var _this = this;
@@ -2381,15 +2382,57 @@ var render = function render() {
       expression: "cart.length > 0"
     }],
     staticClass: "checkout"
-  }, [_c("div", {
+  }, [_c("button", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: !_vm.showCart,
+      expression: "!showCart"
+    }],
+    staticClass: "btn btn-warning",
     attrs: {
-      id: "total"
+      id: "view-cart"
+    },
+    on: {
+      click: function click($event) {
+        _vm.showCart = true;
+      }
     }
-  }, [_vm._v("Totale: € " + _vm._s(_vm.totalPrice))]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Visualizza carrello")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-info mt-3",
     attrs: {
       id: "counter"
     }
-  }, [_vm._v("Quantità: " + _vm._s(_vm.counter))])])]);
+  }, [_vm._v("Procedi con l'ordine")]), _vm._v(" "), _c("div", {
+    attrs: {
+      id: "close"
+    },
+    on: {
+      click: function click($event) {
+        _vm.cart = [];
+      }
+    }
+  }, [_vm._v("X")])]), _vm._v(" "), _c("div", {
+    staticClass: "products-in-cart",
+    "class": {
+      "d-block": _vm.showCart
+    }
+  }, _vm._l(_vm.cart, function (item) {
+    return _c("div", {
+      key: item.id,
+      staticClass: "product-box"
+    }, [_c("div", {
+      staticClass: "items w-100"
+    }, [_c("div", {
+      staticClass: "item-name d-inline-block pb-3"
+    }, [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("div", {
+      staticClass: "item-price d-inline-block pb-3"
+    }, [_vm._v(_vm._s(item.price) + " €")])]), _vm._v(" "), _c("div", {
+      staticClass: "commands"
+    }, [_vm._m(3, true), _vm._v(" "), _c("div", {
+      staticClass: "command amount"
+    }, [_vm._v(_vm._s(_vm.counter))]), _vm._v(" "), _vm._m(4, true)])]);
+  }), 0)]);
 };
 
 var staticRenderFns = [function () {
@@ -2432,6 +2475,20 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "over-line mt-5"
   }), _vm._v(" "), _c("h2", [_vm._v("Delivery")])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "command remove-item"
+  }, [_c("b", [_vm._v("-")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "command add-item"
+  }, [_c("b", [_vm._v("+")])]);
 }];
 render._withStripped = true;
 
@@ -3228,7 +3285,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".lm-jumbotron[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/P1488251-scaled.jpg */ "./resources/js/assets/img/P1488251-scaled.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron p[data-v-13959f8e] {\n  line-height: 30px;\n}\n.lm-jumbotron .buttons[data-v-13959f8e] {\n  margin-top: 70px;\n}\n.lm-jumbotron a + a[data-v-13959f8e] {\n  text-decoration: underline;\n  font-weight: bolder;\n  margin-left: 20px;\n}\n.lm-jumbotron a + a[data-v-13959f8e]:hover {\n  text-decoration: none;\n}\n.copertura[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-09.jpg */ "./resources/js/assets/img/butcher-09.jpg")) + ");\n}\n.copertura img[data-v-13959f8e] {\n  width: 300px;\n}\n.copertura h2[data-v-13959f8e] {\n  font-weight: bolder;\n}\n.copertura h5[data-v-13959f8e] {\n  color: #9a000e;\n  font-weight: bolder;\n}\n.copertura p[data-v-13959f8e] {\n  color: rgb(174, 174, 174);\n}\n.delivery .over-line[data-v-13959f8e] {\n  height: 5px;\n  width: 75px;\n  background-color: #000;\n}\n.delivery h2[data-v-13959f8e] {\n  font-size: 50px;\n  font-weight: 900;\n  color: #9a000e;\n  padding: 25px 0;\n  margin-bottom: 60px;\n}\n.checkout[data-v-13959f8e] {\n  position: fixed;\n  right: 0;\n  bottom: 0;\n  background-color: aquamarine;\n  width: 250px;\n  height: 120px;\n  padding: 10px;\n  margin: 20px;\n  border-radius: 5px;\n  z-index: 999;\n}", ""]);
+exports.push([module.i, ".lm-jumbotron[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/P1488251-scaled.jpg */ "./resources/js/assets/img/P1488251-scaled.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron p[data-v-13959f8e] {\n  line-height: 30px;\n}\n.lm-jumbotron .buttons[data-v-13959f8e] {\n  margin-top: 70px;\n}\n.lm-jumbotron a + a[data-v-13959f8e] {\n  text-decoration: underline;\n  font-weight: bolder;\n  margin-left: 20px;\n}\n.lm-jumbotron a + a[data-v-13959f8e]:hover {\n  text-decoration: none;\n}\n.copertura[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-09.jpg */ "./resources/js/assets/img/butcher-09.jpg")) + ");\n}\n.copertura img[data-v-13959f8e] {\n  width: 300px;\n}\n.copertura h2[data-v-13959f8e] {\n  font-weight: bolder;\n}\n.copertura h5[data-v-13959f8e] {\n  color: #9a000e;\n  font-weight: bolder;\n}\n.copertura p[data-v-13959f8e] {\n  color: rgb(174, 174, 174);\n}\n.delivery .over-line[data-v-13959f8e] {\n  height: 5px;\n  width: 75px;\n  background-color: #000;\n}\n.delivery h2[data-v-13959f8e] {\n  font-size: 50px;\n  font-weight: 900;\n  color: #9a000e;\n  padding: 25px 0;\n  margin-bottom: 60px;\n}\n.checkout[data-v-13959f8e] {\n  position: fixed;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  justify-content: end;\n  flex-direction: column;\n  background-color: #fff;\n  width: 300px;\n  padding: 10px;\n  margin: 20px;\n  border-radius: 5px;\n  z-index: 999;\n  box-shadow: 0 0 10px;\n}\n.products-in-cart[data-v-13959f8e] {\n  position: fixed;\n  right: 0;\n  bottom: 150px;\n  display: flex;\n  justify-content: end;\n  flex-direction: column;\n  background-color: #fff;\n  width: 300px;\n  max-height: 400px;\n  padding: 10px;\n  margin: 20px;\n  border-radius: 5px;\n  z-index: 999;\n  font-size: 15px;\n  display: none;\n  overflow: auto;\n  box-shadow: 0 0 10px;\n}\n.products-in-cart .product-box[data-v-13959f8e] {\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  border: 1px solid lightgray;\n  margin: 20px 10px;\n  position: relative;\n}\n.products-in-cart .product-box .items[data-v-13959f8e] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.products-in-cart .product-box .commands[data-v-13959f8e] {\n  width: 100%;\n  display: flex;\n  justify-content: space-evenly;\n  position: absolute;\n  bottom: -15px;\n  left: 0;\n}\n.products-in-cart .product-box .command[data-v-13959f8e] {\n  background-color: #fff;\n  width: 35px;\n  height: 35px;\n  border-radius: 50%;\n  border: 1px solid lightgray;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n#close[data-v-13959f8e] {\n  position: absolute;\n  top: 0;\n  right: 10px;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -3247,7 +3304,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".price[data-v-1f62c5a3] {\n  color: #29c4a9;\n  font-weight: 900;\n}\n.card p[data-v-1f62c5a3] {\n  font-size: 13px;\n  letter-spacing: 1px;\n}\n.load-more[data-v-1f62c5a3] {\n  text-transform: uppercase;\n  font-size: 14px;\n  font-weight: 900;\n  width: 100%;\n  text-align: center;\n  color: #fff;\n  background-color: #3b3b3b;\n  padding: 8px 0;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: all 0.4s;\n}\n.load-more[data-v-1f62c5a3]:hover {\n  background-color: #fff;\n  border: 1px solid black;\n  color: black;\n}\n.image[data-v-1f62c5a3] {\n  transition: all 0.5s;\n}\n.image[data-v-1f62c5a3]:active {\n  transform: scale(2.5);\n  z-index: 999;\n}\n.checkout img[data-v-1f62c5a3] {\n  width: 40px;\n  border-radius: 50%;\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".price[data-v-1f62c5a3] {\n  color: #29c4a9;\n  font-weight: 900;\n}\n.card p[data-v-1f62c5a3] {\n  font-size: 13px;\n  letter-spacing: 1px;\n}\n.load-more[data-v-1f62c5a3] {\n  text-transform: uppercase;\n  font-size: 14px;\n  font-weight: 900;\n  width: 100%;\n  text-align: center;\n  color: #fff;\n  background-color: #3b3b3b;\n  padding: 8px 0;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: all 0.4s;\n}\n.load-more[data-v-1f62c5a3]:hover {\n  background-color: #fff;\n  border: 1px solid black;\n  color: black;\n}\n.image[data-v-1f62c5a3] {\n  transition: all 0.5s;\n}\n.image[data-v-1f62c5a3]:active {\n  transform: scale(2);\n  z-index: 999;\n}\n.checkout img[data-v-1f62c5a3] {\n  width: 40px;\n  border-radius: 50%;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -19411,7 +19468,7 @@ module.exports = "/images/home-jumbo.jpg?7c0c272b2f8a2e6f9e70424c3c9938c8";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/image-not-found.jpg?998f5acae4f66a8f3831034b3af4bdc0";
+module.exports = "/images/image-not-found.jpg?d6cf9bfde215ea14e6b4678480b5265c";
 
 /***/ }),
 

@@ -511,28 +511,28 @@ return [
     ],
     [
         "name" => "Sushi Lovers",
-        "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/61.jpg?lossy=1&strip=1&webp=1",
+        "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/61.png?lossy=1&strip=1&webp=1",
 
         "price" => "21.00",
         "relation_category" => 1
     ],
     [
         "name" => "Friends Box",
-        "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/62.jpg?lossy=1&strip=1&webp=1",
+        "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/62.png?lossy=1&strip=1&webp=1",
 
         "price" => "30.00",
         "relation_category" => 1
     ],
     [
         "name" => "Congiunti Party Box",
-        "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/63.jpg?lossy=1&strip=1&webp=1",
+        "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/63.png?lossy=1&strip=1&webp=1",
 
         "price" => "55.00",
         "relation_category" => 1
     ],
     [
         "name" => "Family Menù",
-        "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/64.jpg?lossy=1&strip=1&webp=1",
+        "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/64.png?lossy=1&strip=1&webp=1",
 
         "price" => "88.00",
         "relation_category" => 1

@@ -81,9 +81,29 @@
         </div>
     </section>
 
+    <!-- visualizza carrello -->
+
     <div v-show="cart.length > 0" class="checkout">
-        <div id="total">Totale: € {{totalPrice}}</div>
-        <div id="counter">Quantità: {{counter}}</div>
+        <button class="btn btn-warning" v-show="!showCart" @click="showCart = true" id="view-cart">Visualizza carrello</button>
+        <button class="btn btn-info mt-3" id="counter">Procedi con l'ordine</button>
+        <div @click="cart = []" id="close">X</div>
+    </div>
+
+    <!-- mostro i prodotti nel carrello -->
+
+    <div :class="{'d-block' : showCart}" class="products-in-cart">
+        <div v-for="item in cart" :key="item.id" class="product-box">
+            <div class="items w-100">
+                <div class="item-name d-inline-block pb-3">{{item.name}}</div>
+                <div class="item-price d-inline-block pb-3">{{item.price}} €</div>
+            </div>
+
+            <div class="commands">
+                <div class="command remove-item"> <b>-</b> </div>
+                <div class="command amount">{{counter}}</div>
+                <div class="command add-item"> <b>+</b> </div>
+            </div>
+        </div>
     </div>
 
   </main>
@@ -109,6 +129,7 @@ export default {
             cart: [],
             totalPrice: 0,
             counter: 0,
+            showCart: false,
         }
     },
 
@@ -117,7 +138,6 @@ export default {
             this.cart.push(product);
             this.counter = this.cart.length;
             this.showFinalPrice();
-            // console.log(this.cart)
         },
 
         showFinalPrice(){
@@ -127,14 +147,13 @@ export default {
         itemsSum(){
             let totalSum = 0;
             for(let i = 0; i < this.cart.length; i++){
-                totalSum += this.cart[i].price;
-                // console.log(this.cart);
+                totalSum += parseFloat(this.cart[i].price);
             }
                 return totalSum;
         },
 
-        ricevoIlProdottoCliccato(food){
-            this.addProductToCart(food)
+        ricevoIlProdottoCliccato(product){
+            this.addProductToCart(product)
         },
 
         getFood(){
@@ -266,13 +285,83 @@ export default {
         position: fixed;
         right: 0;
         bottom: 0;
-        background-color: aquamarine;
-        width: 250px;
-        height: 120px;
+        display: flex;
+        justify-content: end;
+        flex-direction: column;
+        background-color: #fff;
+        width: 300px;
         padding: 10px;
         margin: 20px;
         border-radius: 5px;
         z-index: 999;
+        box-shadow: 0 0 10px;
+
+    }
+
+    .products-in-cart{
+        position: fixed;
+        right: 0;
+        bottom: 150px;
+        display: flex;
+        justify-content: end;
+        flex-direction: column;
+        background-color: #fff;
+        width: 300px;
+        max-height: 400px;
+        padding: 10px;
+        margin: 20px;
+        border-radius: 5px;
+        z-index: 999;
+        font-size: 15px;
+        display: none;
+        overflow: auto;
+        box-shadow: 0 0 10px;
+
+        .product-box{
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border: 1px solid lightgray;
+            margin: 20px 10px;
+            position: relative;
+
+            .items{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .commands{
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                position: absolute;
+                bottom: -15px;
+                left: 0;
+
+            }
+
+            .command{
+                background-color: #fff;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                border: 1px solid lightgray;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
+
+
+        }
+    }
+
+    #close{
+        position: absolute;
+        top: 0;
+        right: 10px;
+        cursor: pointer;
     }
 
 

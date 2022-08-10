@@ -15,6 +15,7 @@
 
                     <h5 class="card-title">{{ food.name }}</h5>
                     <p v-if="food.description" class="card-text">{{ food.description }}</p>
+
                     <div class="checkout d-flex justify-content-between align-items-center">
                         <h6 class="card-text price">{{ food.price }} €</h6>
                         <div @click="$emit('bottoneCliccato', food)" class="cart"><img src="../../assets/img/cart.jpg" alt="shopping-cart"></div>
@@ -97,16 +98,18 @@ export default {
         transition: all .5s;
 
         &:active{
-            transform: scale(2.5);
+            transform: scale(2);
             z-index: 999;
         }
     }
 
     .checkout{
+
         img{
             width: 40px;
             border-radius: 50%;
             cursor: pointer;
+
         }
     }
 
