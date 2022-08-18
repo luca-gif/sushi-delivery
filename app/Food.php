@@ -18,6 +18,12 @@ class Food extends Model
         return $this->belongsTo('App\Type');
     }
 
+    public function orders()
+    {
+        return $this->belongsToMany('App/Order');
+    }
+
+
     protected $fillable = [
         'image',
         'name',

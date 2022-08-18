@@ -140,7 +140,7 @@
             <div class="lm-container come-funziona">
 
                 <div class="row">
-                    <div class="col-6 text-white">
+                    <div class="col-6 text-black">
 
                         <h4>COME FUNZIONA?</h4>
                         <h2>ORDINA E RESTA <br> COMODO</h2>
@@ -218,13 +218,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-8">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.0077612748355!2d12.28234142799624!3d44.12446206303605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cbb6e4fe6b78b%3A0x560fa944243cf77!2sMiko%20Sushi%20Cesena!5e0!3m2!1sit!2sit!4v1659385217620!5m2!1sit!2sit" width="700" height="350" style="border:0; filter: invert(90%)" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15466.018955487722!2d-39.00457532524392!3d-14.282080695508489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x73935fa91bad8f3%3A0x3412ed88f1cfe936!2sItacar%C3%A9%2C%20Bahia%2C%20Brasile!5e0!3m2!1sit!2sit!4v1660296148112!5m2!1sit!2sit" width="700" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                     </div>
                     <div class="col-4">
 
                         <h5>Ti aspettiamo</h5>
-                        <p>Vieni a ritirare il tuo ordine direttamente al ristorante, ci troviamo in Via Emilia Levante, <br>
-                            1655, 47521 Cesena FC</p>
+                        <p>Vieni a ritirare il tuo ordine direttamente al ristorante.</p>
 
                         <div><router-link :to="{name: 'delivery'}" class="miko-btn text-white">Ordina ora</router-link></div>
                         <h5 class="mt-5">Orari per il ritiro</h5>

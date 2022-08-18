@@ -6,15 +6,17 @@
         <div v-for="food in foodsLoaded" :key="food.id" class="sushi col-3">
             <div class="card mb-4" style="width: 12rem; min-height: 27rem; border-radius: 5px;">
 
-                <!-- <router-link :to="{ name: 'detail', params:{slug: food.slug }}"> -->
-                    <img v-if="food.image" class="image card-img-top" :src="food.image" :alt="food.name" :title="food.name">
-                    <img v-else class="card-img-top" src="../../assets/img/image-not-found.jpg" alt="Image not found">
-                <!-- </router-link> -->
 
-                <div class="card-body">
+                <img v-if="food.image" class="image card-img-top" :src="food.image" :alt="food.name" :title="food.name">
+                <img v-else class="card-img-top" src="../../assets/img/image-not-found.jpg" alt="Image not found">
 
-                    <h5 class="card-title">{{ food.name }}</h5>
-                    <p v-if="food.description" class="card-text">{{ food.description }}</p>
+
+                <div class="card-body d-flex flex-column justify-content-between">
+
+                    <div>
+                        <h5 class="card-title">{{ food.name }}</h5>
+                        <p v-if="food.description" class="card-text">{{ food.description }}</p>
+                    </div>
 
                     <div class="checkout d-flex justify-content-between align-items-center">
                         <h6 class="card-text price">{{ food.price }} €</h6>

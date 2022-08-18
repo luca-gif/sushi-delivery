@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-6">
 
-                        <img src="https://764000.smushcdn.com/1772720/wp-content/uploads/2020/05/logo-miko-sushi-cesena.png?lossy=1&strip=1&webp=1" alt="">
+                        <img src="../../assets/img/Sushi-Logo-Graphics-6589364-1.jpg" alt="sushi logo">
 
                         <p class="py-4 text-muted">
                         Miko Sushi è cucina fusion di alta qualità e di straordinario equilibrio sensoriale. Tradizioni millenarie che diventano vere e proprie opere d’arte, piene di eleganza e di gusto. Piatti che ti catturano con gli occhi prima ancora del con il palato. Miko Sushi è esperienza culinaria che diventa emozione.

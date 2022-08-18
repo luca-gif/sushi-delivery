@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Food;
-use App\Category;
-use App\Type;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Food;
+use App\Category;
+use App\Order;
+use App\Type;
 
 
 class PageController extends Controller
@@ -16,8 +17,9 @@ class PageController extends Controller
         $foods = Food::all();
         $categories = Category::all();
         $types = Type::all();
+        $orders = Order::all();
 
-        return response()->json(compact('foods', 'categories', 'types'));
+        return response()->json(compact('foods', 'categories', 'types', 'orders'));
     }
 
     public function show($slug)

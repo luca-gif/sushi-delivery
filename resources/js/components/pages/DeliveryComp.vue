@@ -83,39 +83,48 @@
 
     <!-- visualizza carrello -->
 
-    <div v-show="cart.length > 0" class="checkout">
+    <div v-show="cart.length > 0" class="checkout text-center">
+        <h5>Totale: {{totalPrice}} €</h5>
         <button class="btn btn-warning" v-show="!showCart" @click="showCart = true" id="view-cart">Visualizza carrello</button>
         <button class="btn btn-info mt-3" id="counter">Procedi con l'ordine</button>
-        <div @click="cart = []" id="close">X</div>
     </div>
 
     <!-- mostro i prodotti nel carrello -->
 
-    <div :class="{'d-block' : showCart}" class="products-in-cart">
-        <div v-for="item in cart" :key="item.id" class="product-box">
+    <div v-if="cart.length != 0" :class="showCart ? 'd-block' : '' " class="products-in-cart text-center">
+
+        <h4><strong>Il tuo carrello</strong></h4>
+        <span @click="showCart = false" class="close-cart"> x </span>
+        <div v-for="(item, index) in cart" :key="index"
+        class="product-box"
+        >
+
             <div class="items w-100">
                 <div class="item-name d-inline-block pb-3">{{item.name}}</div>
                 <div class="item-price d-inline-block pb-3">{{item.price}} €</div>
             </div>
 
             <div class="commands">
-                <div class="command remove-item"> <b>-</b> </div>
-                <div class="command amount">{{counter}}</div>
-                <div class="command add-item"> <b>+</b> </div>
+                <div @click="removeItem(item)" class="command remove-item"> <b>-</b> </div>
+                <div class="command amount">{{item.amount}}</div>
+                <div @click="addItem(item)" class="command add-item"> <b>+</b> </div>
             </div>
         </div>
     </div>
+
+    <checkout-comp />
 
   </main>
 </template>
 
 <script>
+import CheckoutComp from './CheckoutComp.vue';
 import FoodComp from './FoodComp.vue';
 import SidebarComp from './SidebarComp.vue';
 
 
 export default {
-  components: {FoodComp, SidebarComp},
+  components: {FoodComp, SidebarComp, CheckoutComp},
     name: 'DeliveryComp',
     data(){
         return{
@@ -128,16 +137,44 @@ export default {
             slugType: '',
             cart: [],
             totalPrice: 0,
-            counter: 0,
             showCart: false,
         }
     },
 
     methods: {
+
+        // aggiungo un prodotto al click sul +
+
+        addItem(product){
+            if(!this.cart.includes(product)){
+                this.cart.push(product)
+            }
+            product.amount++
+            this.showFinalPrice()
+            // console.log(this.cart)
+        },
+
+        // rimuovo un prodotto al click sul -
+
+        removeItem(product){
+            if(product.amount == 1){
+                let productToRemove = this.cart.indexOf(product)
+                this.cart.splice(productToRemove,1)
+            }
+            product.amount--
+            this.showFinalPrice()
+            // console.log(this.cart)
+        },
+
+        //aggiunge il prodotto cliccato all'array carrello
+
         addProductToCart(product){
-            this.cart.push(product);
-            this.counter = this.cart.length;
+            if(!this.cart.includes(product)){
+                this.cart.push(product);
+            }
+            product.amount++
             this.showFinalPrice();
+            console.log(this.cart);
         },
 
         showFinalPrice(){
@@ -147,7 +184,7 @@ export default {
         itemsSum(){
             let totalSum = 0;
             for(let i = 0; i < this.cart.length; i++){
-                totalSum += parseFloat(this.cart[i].price);
+                totalSum += parseFloat(this.cart[i].price) * this.cart[i].amount;
             }
                 return totalSum;
         },
@@ -159,7 +196,6 @@ export default {
         getFood(){
             axios.get(this.foodApi)
             .then(r=>{
-
                 this.arrayFood = r.data.foods;
                 this.arrayCategory = r.data.categories;
                 this.arrayType = r.data.types;
@@ -295,7 +331,6 @@ export default {
         border-radius: 5px;
         z-index: 999;
         box-shadow: 0 0 10px;
-
     }
 
     .products-in-cart{
@@ -313,9 +348,17 @@ export default {
         border-radius: 5px;
         z-index: 999;
         font-size: 15px;
-        display: none;
         overflow: auto;
         box-shadow: 0 0 10px;
+        display: none;
+
+        .close-cart{
+            position: absolute;
+            top: 0;
+            right: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
 
         .product-box{
             display: flex;
@@ -335,16 +378,24 @@ export default {
                 width: 100%;
                 display: flex;
                 justify-content: space-evenly;
+                align-items: center;
                 position: absolute;
                 bottom: -15px;
                 left: 0;
 
+                .amount{
+                    width: 40px;
+                    height: 32px;
+                    font-size: 14px;
+                    border: 1px solid rgb(230, 230, 230);
+                    cursor: default;
+                }
             }
 
             .command{
                 background-color: #fff;
                 width: 35px;
-                height: 35px;
+                height: 32px;
                 border-radius: 50%;
                 border: 1px solid lightgray;
                 display: flex;
@@ -352,17 +403,7 @@ export default {
                 align-items: center;
                 cursor: pointer;
             }
-
-
         }
     }
-
-    #close{
-        position: absolute;
-        top: 0;
-        right: 10px;
-        cursor: pointer;
-    }
-
 
 </style>
