@@ -20,16 +20,21 @@
         <strong class="m-2 d-inline-block">Seleziona il giorno e l'ora di ritiro</strong>
 
         <div class="form-group">
-            <input type="date" class="form-control" v-model="newOrder.date" id="date" placeholder="Nome" :min="currentDay">
+            <input type="date" class="form-control" v-model="newOrder.date" id="date" :min="currentDay">
         </div>
 
         <select class="form-control" v-model.trim="newOrder.hour" name="hour" id="hour">
             <option value="">Seleziona un orario</option>
             <option value="">12:00</option>
-            <option value="">20:00</option>
+            <option value="">12:30</option>
+            <option value="">13:00</option>
+            <option value="">13:30</option>
+            <option value="">14:00</option>
         </select>
 
         <button @click="sendOrder()" type="submit" class="btn btn-secondary mt-3 w-100">Invia</button>
+
+        <h5 class="text-right p-3 text-muted">Totale ordine: <strong>€ {{price}}</strong></h5>
     </form>
 
   </section>
@@ -38,6 +43,10 @@
 <script>
 export default {
     name: 'CheckoutComp',
+
+    props: {
+        price: Number
+    },
 
     data(){
         return{

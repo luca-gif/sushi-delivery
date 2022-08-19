@@ -2,7 +2,8 @@
   <div>
 
     <ul class="list-unstyled">
-        <h4 class="mb-4">Filtra per categoria</h4>
+        <h4>Filtra per categoria</h4>
+        <span @click="$emit('callApiFood')" class="badge badge-warning mb-4">Resetta i filtri</span>
         <li @click="category.id == 4 ? showType = !showType : showType = false,
             $emit('categorySlug', category.slug)"
 
@@ -49,6 +50,11 @@ export default {
         color: grey;
         font-weight: 900;
         cursor: pointer;
+    }
+
+    span.badge{
+        cursor: pointer;
+        text-transform: uppercase;
     }
 
 

@@ -1981,6 +1981,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CheckoutComp',
+  props: {
+    price: Number
+  },
   data: function data() {
     return {
       foodApi: '/api/foods',
@@ -2505,7 +2508,6 @@ var render = function render() {
     attrs: {
       type: "date",
       id: "date",
-      placeholder: "Nome",
       min: _vm.currentDay
     },
     domProps: {
@@ -2557,7 +2559,19 @@ var render = function render() {
     attrs: {
       value: ""
     }
-  }, [_vm._v("20:00")])]), _vm._v(" "), _c("button", {
+  }, [_vm._v("12:30")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("13:00")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("13:30")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("14:00")])]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-secondary mt-3 w-100",
     attrs: {
       type: "submit"
@@ -2567,7 +2581,9 @@ var render = function render() {
         return _vm.sendOrder();
       }
     }
-  }, [_vm._v("Invia")])])]);
+  }, [_vm._v("Invia")]), _vm._v(" "), _c("h5", {
+    staticClass: "text-right p-3 text-muted"
+  }, [_vm._v("Totale ordine: "), _c("strong", [_vm._v("€ " + _vm._s(_vm.price))])])])]);
 };
 
 var staticRenderFns = [];
@@ -2657,7 +2673,8 @@ var render = function render() {
     },
     on: {
       categorySlug: _vm.categorySlug,
-      tipologySlug: _vm.tipologySlug
+      tipologySlug: _vm.tipologySlug,
+      callApiFood: _vm.getFood
     }
   })], 1), _vm._v(" "), _c("div", {
     staticClass: "col-9"
@@ -2741,11 +2758,20 @@ var render = function render() {
         }
       }
     }, [_c("b", [_vm._v("+")])])])]);
-  })], 2) : _vm._e(), _vm._v(" "), _vm.showForm ? _c("checkout-comp", {
+  })], 2) : _vm._e(), _vm._v(" "), _c("checkout-comp", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.showForm,
+      expression: "showForm"
+    }],
+    attrs: {
+      price: _vm.totalPrice
+    },
     on: {
       closeForm: _vm.closeForm
     }
-  }) : _vm._e()], 1);
+  })], 1);
 };
 
 var staticRenderFns = [function () {
@@ -3278,9 +3304,14 @@ var render = function render() {
 
   return _c("div", [_c("ul", {
     staticClass: "list-unstyled"
-  }, [_c("h4", {
-    staticClass: "mb-4"
-  }, [_vm._v("Filtra per categoria")]), _vm._v(" "), _vm._l(_vm.categories, function (category) {
+  }, [_c("h4", [_vm._v("Filtra per categoria")]), _vm._v(" "), _c("span", {
+    staticClass: "badge badge-warning mb-4",
+    on: {
+      click: function click($event) {
+        return _vm.$emit("callApiFood");
+      }
+    }
+  }, [_vm._v("Resetta i filtri")]), _vm._v(" "), _vm._l(_vm.categories, function (category) {
     return _c("li", {
       key: category.id,
       staticClass: "mb-3",
@@ -3680,7 +3711,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "li[data-v-2161bbe5] {\n  color: grey;\n  font-weight: 900;\n  cursor: pointer;\n}\n.check[data-v-2161bbe5] {\n  width: 30px;\n  height: 30px;\n  border: 1px solid grey;\n  border-radius: 5px;\n  vertical-align: middle;\n  margin-right: 10px;\n  line-height: 30px;\n  cursor: pointer;\n}\n.check[data-v-2161bbe5]:hover {\n  border: 2px solid #29c4a9;\n}", ""]);
+exports.push([module.i, "li[data-v-2161bbe5] {\n  color: grey;\n  font-weight: 900;\n  cursor: pointer;\n}\nspan.badge[data-v-2161bbe5] {\n  cursor: pointer;\n  text-transform: uppercase;\n}\n.check[data-v-2161bbe5] {\n  width: 30px;\n  height: 30px;\n  border: 1px solid grey;\n  border-radius: 5px;\n  vertical-align: middle;\n  margin-right: 10px;\n  line-height: 30px;\n  cursor: pointer;\n}\n.check[data-v-2161bbe5]:hover {\n  border: 2px solid #29c4a9;\n}", ""]);
 
 // exports
 

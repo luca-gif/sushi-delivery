@@ -64,6 +64,7 @@
                     :tipologies="arrayType"
                     @categorySlug = 'categorySlug'
                     @tipologySlug = 'tipologySlug'
+                    @callApiFood = 'getFood'
                     />
 
                 </div>
@@ -114,8 +115,9 @@
 
     <!-- Visualizzo il form solo al click su "Procedi con l'ordine" -->
 
-    <checkout-comp v-if="showForm"
+    <checkout-comp v-show="showForm"
     @closeForm = "closeForm"
+    :price = "totalPrice"
     />
 
 

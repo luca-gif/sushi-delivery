@@ -11,7 +11,7 @@ return [
 
     ],
     [
-        "name" => "Tartare salmon",
+        "name" => "Tartare salmone",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/2.jpg?lossy=1&strip=1&webp=1",
         "description" => "Tartare di salmon speziato con salsa ponzu, salsa rucola, avocado e mango",
         "price" => "9.00",
@@ -19,7 +19,7 @@ return [
         "amount" => 0
     ],
     [
-        "name" => "Cheviche salmon",
+        "name" => "Cheviche salmone",
         "image" => "https://764000.smushcdn.com/1772720/wp-content/uploads/2020/06/3.jpg?lossy=1&strip=1&webp=1",
         "description" => "Carpacci di salmone, arachidi, salsa mango, salsa rucola e wasabi dressing",
         "price" => "9.00",
