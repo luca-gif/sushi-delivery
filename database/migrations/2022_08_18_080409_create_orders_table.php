@@ -21,7 +21,6 @@ class CreateOrdersTable extends Migration
             $table->time('hour');
             $table->unsignedTinyInteger('final_price');
             $table->string('customer_name');
-            $table->string('customer_lastname');
             $table->string('customer_email');
             $table->string('customer_phone');
             $table->timestamps();

@@ -85,8 +85,8 @@
 
     <div v-show="cart.length > 0" class="checkout text-center">
         <h5>Totale: {{totalPrice}} €</h5>
-        <button class="btn btn-warning" v-show="!showCart" @click="showCart = true" id="view-cart">Visualizza carrello</button>
-        <button class="btn btn-info mt-3" id="counter">Procedi con l'ordine</button>
+        <button @click="showCart = true" class="btn btn-warning" v-show="!showCart" id="view-cart">Visualizza carrello</button>
+        <button @click="showForm = true" class="btn btn-info mt-3" id="counter">Procedi con l'ordine</button>
     </div>
 
     <!-- mostro i prodotti nel carrello -->
@@ -112,7 +112,12 @@
         </div>
     </div>
 
-    <checkout-comp />
+    <!-- Visualizzo il form solo al click su "Procedi con l'ordine" -->
+
+    <checkout-comp v-if="showForm"
+    @closeForm = "closeForm"
+    />
+
 
   </main>
 </template>
@@ -138,10 +143,15 @@ export default {
             cart: [],
             totalPrice: 0,
             showCart: false,
+            showForm: false,
         }
     },
 
     methods: {
+
+        closeForm(){
+            this.showForm = false
+        },
 
         // aggiungo un prodotto al click sul +
 
@@ -263,6 +273,7 @@ export default {
 
         .buttons{
             margin-top: 70px;
+            cursor: pointer;
         }
 
         a + a{
@@ -354,10 +365,23 @@ export default {
 
         .close-cart{
             position: absolute;
-            top: 0;
+            top: 10px;
             right: 10px;
             padding: 10px;
             cursor: pointer;
+            border: 1px solid rgba(255, 0, 0, .6);
+            border-radius: 50%;
+            color: rgba(255, 0, 0, .6);
+            height: 30px;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+             &:hover{
+                background-color: rgba(255, 0, 0, .6);
+                color: white;
+            }
         }
 
         .product-box{

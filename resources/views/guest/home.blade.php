@@ -1,5 +1,5 @@
 <head>
-    <title>SUSHIKO</title>
+    <title>Sushino</title>
     <link href="{{ asset('css/food/style.css') }}" rel="stylesheet">
 </head>
 

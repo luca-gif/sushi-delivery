@@ -1980,7 +1980,54 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'CheckoutComp'
+  name: 'CheckoutComp',
+  data: function data() {
+    return {
+      foodApi: '/api/foods',
+      newOrder: {
+        name: '',
+        email: '',
+        phone: '',
+        date: '',
+        hour: ''
+      },
+      currentDay: "",
+      currentTime: ""
+    };
+  },
+  methods: {
+    sendOrder: function sendOrder() {
+      axios.post(this.foodApi, this.newOrder).then(function (r) {
+        console.log(r.data);
+      });
+    },
+    // Prendo la data attuale per oscurare le date antecedenti nel calendario
+    getDate: function getDate() {
+      var today = new Date();
+
+      if (today.getMonth() < 10) {
+        var date = today.getFullYear() + '-' + '0' + (today.getMonth() + 1) + '-' + today.getDate();
+        this.currentDay = date;
+      } else if (today.getDay() < 10) {
+        var _date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + '0' + today.getDate();
+
+        this.currentDay = _date;
+      } else {
+        var _date2 = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+        this.currentDay = _date2;
+      }
+    },
+    getTime: function getTime() {
+      var today = new Date();
+      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      this.currentTime = time;
+      console.log(this.currentTime);
+    }
+  },
+  created: function created() {
+    this.getDate(); // this.getTime()
+  }
 });
 
 /***/ }),
@@ -2033,10 +2080,14 @@ __webpack_require__.r(__webpack_exports__);
       slugType: '',
       cart: [],
       totalPrice: 0,
-      showCart: false
+      showCart: false,
+      showForm: false
     };
   },
   methods: {
+    closeForm: function closeForm() {
+      this.showForm = false;
+    },
     // aggiungo un prodotto al click sul +
     addItem: function addItem(product) {
       if (!this.cart.includes(product)) {
@@ -2338,45 +2389,161 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", [_c("form", [_c("div", {
+  return _c("section", [_c("form", [_c("h4", {
+    staticClass: "mb-3"
+  }, [_vm._v("Dettagli dell’ordine")]), _vm._v(" "), _c("span", {
+    on: {
+      click: function click($event) {
+        return _vm.$emit("closeForm");
+      }
+    }
+  }, [_vm._v(" x ")]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.newOrder.name,
+      expression: "newOrder.name",
+      modifiers: {
+        trim: true
+      }
+    }],
     staticClass: "form-control",
     attrs: {
       type: "text",
       id: "name",
       placeholder: "Nome"
+    },
+    domProps: {
+      value: _vm.newOrder.name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.newOrder, "name", $event.target.value.trim());
+      },
+      blur: function blur($event) {
+        return _vm.$forceUpdate();
+      }
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.newOrder.email,
+      expression: "newOrder.email",
+      modifiers: {
+        trim: true
+      }
+    }],
     staticClass: "form-control",
     attrs: {
       type: "text",
-      id: "lastname",
-      placeholder: "Cognome"
+      id: "email",
+      placeholder: "E-mail"
+    },
+    domProps: {
+      value: _vm.newOrder.email
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.newOrder, "email", $event.target.value.trim());
+      },
+      blur: function blur($event) {
+        return _vm.$forceUpdate();
+      }
     }
-  })]), _vm._v(" "), _c("strong", [_vm._v("Seleziona il giorno e l'ora di ritiro")]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.newOrder.phone,
+      expression: "newOrder.phone",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      id: "phone",
+      placeholder: "Telefono"
+    },
+    domProps: {
+      value: _vm.newOrder.phone
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.newOrder, "phone", $event.target.value.trim());
+      },
+      blur: function blur($event) {
+        return _vm.$forceUpdate();
+      }
+    }
+  })]), _vm._v(" "), _c("strong", {
+    staticClass: "m-2 d-inline-block"
+  }, [_vm._v("Seleziona il giorno e l'ora di ritiro")]), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.newOrder.date,
+      expression: "newOrder.date"
+    }],
     staticClass: "form-control",
     attrs: {
       type: "date",
-      id: "name",
-      placeholder: "Nome"
+      id: "date",
+      placeholder: "Nome",
+      min: _vm.currentDay
+    },
+    domProps: {
+      value: _vm.newOrder.date
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.newOrder, "date", $event.target.value);
+      }
     }
   })]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.newOrder.hour,
+      expression: "newOrder.hour",
+      modifiers: {
+        trim: true
+      }
+    }],
     staticClass: "form-control",
     attrs: {
       name: "hour",
       id: "hour"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+
+        _vm.$set(_vm.newOrder, "hour", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
     }
   }, [_c("option", {
     attrs: {
@@ -2391,12 +2558,19 @@ var staticRenderFns = [function () {
       value: ""
     }
   }, [_vm._v("20:00")])]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-secondary mt-3",
+    staticClass: "btn btn-secondary mt-3 w-100",
     attrs: {
       type: "submit"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.sendOrder();
+      }
     }
   }, [_vm._v("Invia")])])]);
-}];
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -2522,6 +2696,11 @@ var render = function render() {
     staticClass: "btn btn-info mt-3",
     attrs: {
       id: "counter"
+    },
+    on: {
+      click: function click($event) {
+        _vm.showForm = true;
+      }
     }
   }, [_vm._v("Procedi con l'ordine")])]), _vm._v(" "), _vm.cart.length != 0 ? _c("div", {
     staticClass: "products-in-cart text-center",
@@ -2562,7 +2741,11 @@ var render = function render() {
         }
       }
     }, [_c("b", [_vm._v("+")])])])]);
-  })], 2) : _vm._e(), _vm._v(" "), _c("checkout-comp")], 1);
+  })], 2) : _vm._e(), _vm._v(" "), _vm.showForm ? _c("checkout-comp", {
+    on: {
+      closeForm: _vm.closeForm
+    }
+  }) : _vm._e()], 1);
 };
 
 var staticRenderFns = [function () {
@@ -3400,7 +3583,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "form[data-v-5c3420ea] {\n  background-color: white;\n  border-radius: 10px;\n  padding: 30px;\n  width: 30%;\n  margin: 0 auto;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 999;\n}", ""]);
+exports.push([module.i, "section[data-v-5c3420ea] {\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(0, 0, 0, 0.4);\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9988;\n}\nform[data-v-5c3420ea] {\n  background-color: white;\n  border-radius: 10px;\n  padding: 20px 30px;\n  width: 30%;\n  margin: 0 auto;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 999;\n  overflow-y: scroll;\n}\nform span[data-v-5c3420ea] {\n  cursor: pointer;\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  border: 1px solid rgba(255, 0, 0, 0.6);\n  border-radius: 50%;\n  color: rgba(255, 0, 0, 0.6);\n  height: 30px;\n  width: 30px;\n  display: flex;\n  justify-content: center;\n}\nform span[data-v-5c3420ea]:hover {\n  background-color: rgba(255, 0, 0, 0.6);\n  color: white;\n}", ""]);
 
 // exports
 
@@ -3420,7 +3603,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".lm-jumbotron[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/P1488251-scaled.jpg */ "./resources/js/assets/img/P1488251-scaled.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron p[data-v-13959f8e] {\n  line-height: 30px;\n}\n.lm-jumbotron .buttons[data-v-13959f8e] {\n  margin-top: 70px;\n}\n.lm-jumbotron a + a[data-v-13959f8e] {\n  text-decoration: underline;\n  font-weight: bolder;\n  margin-left: 20px;\n}\n.lm-jumbotron a + a[data-v-13959f8e]:hover {\n  text-decoration: none;\n}\n.copertura[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-09.jpg */ "./resources/js/assets/img/butcher-09.jpg")) + ");\n}\n.copertura img[data-v-13959f8e] {\n  width: 300px;\n}\n.copertura h2[data-v-13959f8e] {\n  font-weight: bolder;\n}\n.copertura h5[data-v-13959f8e] {\n  color: #9a000e;\n  font-weight: bolder;\n}\n.copertura p[data-v-13959f8e] {\n  color: rgb(174, 174, 174);\n}\n.delivery .over-line[data-v-13959f8e] {\n  height: 5px;\n  width: 75px;\n  background-color: #000;\n}\n.delivery h2[data-v-13959f8e] {\n  font-size: 50px;\n  font-weight: 900;\n  color: #9a000e;\n  padding: 25px 0;\n  margin-bottom: 60px;\n}\n.checkout[data-v-13959f8e] {\n  position: fixed;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  justify-content: end;\n  flex-direction: column;\n  background-color: #fff;\n  width: 300px;\n  padding: 10px;\n  margin: 20px;\n  border-radius: 5px;\n  z-index: 999;\n  box-shadow: 0 0 10px;\n}\n.products-in-cart[data-v-13959f8e] {\n  position: fixed;\n  right: 0;\n  bottom: 150px;\n  display: flex;\n  justify-content: end;\n  flex-direction: column;\n  background-color: #fff;\n  width: 300px;\n  max-height: 400px;\n  padding: 10px;\n  margin: 20px;\n  border-radius: 5px;\n  z-index: 999;\n  font-size: 15px;\n  overflow: auto;\n  box-shadow: 0 0 10px;\n  display: none;\n}\n.products-in-cart .close-cart[data-v-13959f8e] {\n  position: absolute;\n  top: 0;\n  right: 10px;\n  padding: 10px;\n  cursor: pointer;\n}\n.products-in-cart .product-box[data-v-13959f8e] {\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  border: 1px solid lightgray;\n  margin: 20px 10px;\n  position: relative;\n}\n.products-in-cart .product-box .items[data-v-13959f8e] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.products-in-cart .product-box .commands[data-v-13959f8e] {\n  width: 100%;\n  display: flex;\n  justify-content: space-evenly;\n  align-items: center;\n  position: absolute;\n  bottom: -15px;\n  left: 0;\n}\n.products-in-cart .product-box .commands .amount[data-v-13959f8e] {\n  width: 40px;\n  height: 32px;\n  font-size: 14px;\n  border: 1px solid rgb(230, 230, 230);\n  cursor: default;\n}\n.products-in-cart .product-box .command[data-v-13959f8e] {\n  background-color: #fff;\n  width: 35px;\n  height: 32px;\n  border-radius: 50%;\n  border: 1px solid lightgray;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".lm-jumbotron[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/P1488251-scaled.jpg */ "./resources/js/assets/img/P1488251-scaled.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n}\n.lm-jumbotron p[data-v-13959f8e] {\n  line-height: 30px;\n}\n.lm-jumbotron .buttons[data-v-13959f8e] {\n  margin-top: 70px;\n  cursor: pointer;\n}\n.lm-jumbotron a + a[data-v-13959f8e] {\n  text-decoration: underline;\n  font-weight: bolder;\n  margin-left: 20px;\n}\n.lm-jumbotron a + a[data-v-13959f8e]:hover {\n  text-decoration: none;\n}\n.copertura[data-v-13959f8e] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../assets/img/butcher-09.jpg */ "./resources/js/assets/img/butcher-09.jpg")) + ");\n}\n.copertura img[data-v-13959f8e] {\n  width: 300px;\n}\n.copertura h2[data-v-13959f8e] {\n  font-weight: bolder;\n}\n.copertura h5[data-v-13959f8e] {\n  color: #9a000e;\n  font-weight: bolder;\n}\n.copertura p[data-v-13959f8e] {\n  color: rgb(174, 174, 174);\n}\n.delivery .over-line[data-v-13959f8e] {\n  height: 5px;\n  width: 75px;\n  background-color: #000;\n}\n.delivery h2[data-v-13959f8e] {\n  font-size: 50px;\n  font-weight: 900;\n  color: #9a000e;\n  padding: 25px 0;\n  margin-bottom: 60px;\n}\n.checkout[data-v-13959f8e] {\n  position: fixed;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  justify-content: end;\n  flex-direction: column;\n  background-color: #fff;\n  width: 300px;\n  padding: 10px;\n  margin: 20px;\n  border-radius: 5px;\n  z-index: 999;\n  box-shadow: 0 0 10px;\n}\n.products-in-cart[data-v-13959f8e] {\n  position: fixed;\n  right: 0;\n  bottom: 150px;\n  display: flex;\n  justify-content: end;\n  flex-direction: column;\n  background-color: #fff;\n  width: 300px;\n  max-height: 400px;\n  padding: 10px;\n  margin: 20px;\n  border-radius: 5px;\n  z-index: 999;\n  font-size: 15px;\n  overflow: auto;\n  box-shadow: 0 0 10px;\n  display: none;\n}\n.products-in-cart .close-cart[data-v-13959f8e] {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  padding: 10px;\n  cursor: pointer;\n  border: 1px solid rgba(255, 0, 0, 0.6);\n  border-radius: 50%;\n  color: rgba(255, 0, 0, 0.6);\n  height: 30px;\n  width: 30px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.products-in-cart .close-cart[data-v-13959f8e]:hover {\n  background-color: rgba(255, 0, 0, 0.6);\n  color: white;\n}\n.products-in-cart .product-box[data-v-13959f8e] {\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  border: 1px solid lightgray;\n  margin: 20px 10px;\n  position: relative;\n}\n.products-in-cart .product-box .items[data-v-13959f8e] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.products-in-cart .product-box .commands[data-v-13959f8e] {\n  width: 100%;\n  display: flex;\n  justify-content: space-evenly;\n  align-items: center;\n  position: absolute;\n  bottom: -15px;\n  left: 0;\n}\n.products-in-cart .product-box .commands .amount[data-v-13959f8e] {\n  width: 40px;\n  height: 32px;\n  font-size: 14px;\n  border: 1px solid rgb(230, 230, 230);\n  cursor: default;\n}\n.products-in-cart .product-box .command[data-v-13959f8e] {\n  background-color: #fff;\n  width: 35px;\n  height: 32px;\n  border-radius: 50%;\n  border: 1px solid lightgray;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
