@@ -13,10 +13,11 @@ const app = new Vue({
 // Ridimensiono la navbar allo scroll
 
 window.onscroll = function() {
-    scrollFunction();
+    resizeHeader();
+    showAnchor();
 };
 
-function scrollFunction() {
+function resizeHeader() {
     if (
         document.body.scrollTop > 100 ||
         document.documentElement.scrollTop > 100
@@ -26,5 +27,16 @@ function scrollFunction() {
     } else {
         document.getElementById("navbar").style.height = "80px";
         document.getElementById("logo").style.width = "80px";
+    }
+}
+
+function showAnchor() {
+    if (
+        document.body.scrollTop > 400 ||
+        document.documentElement.scrollTop > 400
+    ) {
+        document.querySelector(".anchor").style.display = "flex";
+    } else {
+        document.querySelector(".anchor").style.display = "none";
     }
 }

@@ -323,7 +323,7 @@ export default {
 
     .tocca-a-te{
         background-image: url(../../assets/img/crediamo-alla-qualità-scaled.jpg);
-        background-position: top;
+        background-position: center;
         background-size: cover;
 
 
@@ -423,5 +423,6 @@ export default {
         background-size: cover;
         height: 700px;
     }
+
 
 </style>

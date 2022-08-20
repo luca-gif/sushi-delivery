@@ -1,11 +1,17 @@
 <template>
   <div>
 
+    <!-- Riferimento per l'ancora -->
+    <div id="top"></div>
+
     <header-comp />
 
     <router-view></router-view>
 
     <footer-comp />
+
+    <!-- Ancora -->
+    <anchor-comp />
 
   </div>
 </template>
@@ -13,9 +19,10 @@
 <script>
 import FooterComp from './components/partials/FooterComp.vue'
 import HeaderComp from './components/partials/HeaderComp.vue'
+import AnchorComp from './components/AnchorComp.vue';
 
 export default {
-  components: { HeaderComp, FooterComp },
+  components: { HeaderComp, FooterComp, AnchorComp },
     name: 'App',
 
 }
