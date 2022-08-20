@@ -28,3 +28,5 @@ Route::namespace('Api')
         Route::get('/food-category/{slug}', 'PageController@getFoodByCategory');
         Route::get('/food-type/{slug}', 'PageController@getFoodByType');
     });
+
+Route::post('/orders', 'Api\PageController@store');

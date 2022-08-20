@@ -6,15 +6,15 @@
         <span @click="$emit('closeForm')"> x </span>
 
         <div class="form-group">
-            <input type="text" class="form-control" v-model.trim="newOrder.name" id="name" placeholder="Nome">
+            <input type="text" class="form-control" v-model.trim="newOrder.customer_name" id="name" placeholder="Nome">
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-control" v-model.trim="newOrder.email" id="email" placeholder="E-mail">
+            <input type="text" class="form-control" v-model.trim="newOrder.customer_email" id="email" placeholder="E-mail">
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-control" v-model.trim="newOrder.phone" id="phone" placeholder="Telefono">
+            <input type="text" class="form-control" v-model.trim="newOrder.customer_phone" id="phone" placeholder="Telefono">
         </div>
 
         <strong class="m-2 d-inline-block">Seleziona il giorno e l'ora di ritiro</strong>
@@ -22,15 +22,9 @@
         <div class="form-group">
             <input type="date" class="form-control" v-model="newOrder.date" id="date" :min="currentDay">
         </div>
-
-        <select class="form-control" v-model.trim="newOrder.hour" name="hour" id="hour">
-            <option value="">Seleziona un orario</option>
-            <option value="">12:00</option>
-            <option value="">12:30</option>
-            <option value="">13:00</option>
-            <option value="">13:30</option>
-            <option value="">14:00</option>
-        </select>
+        <div class="form-group">
+            <input type="time" class="form-control" v-model="newOrder.hour" id="time">
+        </div>
 
         <button @click="sendOrder()" type="submit" class="btn btn-secondary mt-3 w-100">Invia</button>
 
@@ -45,36 +39,47 @@ export default {
     name: 'CheckoutComp',
 
     props: {
-        price: Number
+        price: Number,
+        cart: Array,
     },
 
     data(){
         return{
-            foodApi: '/api/foods',
+            orderApi: '/api/orders',
             newOrder: {
-                name: '',
-                email: '',
-                phone: '',
+                customer_name: '',
+                customer_email: '',
+                customer_phone: '',
                 date: '',
-                hour: ''
+                hour: '',
+                amount: '',
+                food_name: '',
             },
 
             currentDay: "",
-            currentTime: "",
         }
     },
 
     methods: {
 
         sendOrder(){
-            axios.post(this.foodApi, this.newOrder)
+
+            for (let i = 0; i < this.cart.length; i++) {
+
+            this.newOrder.food_name = this.cart[i].name;
+            this.newOrder.amount = this.cart[i].amount;
+
+            }
+
+            axios.post(this.orderApi, this.newOrder)
             .then((r) => {
 
-            console.log(r.data)
+                console.log(r.data)
+                console.log(this.newOrder)
             })
         },
 
-        // Prendo la data attuale per oscurare le date antecedenti nel calendario
+        // Prendo la data attuale per disabilitare le date antecedenti nel calendario
 
         getDate() {
                 const today = new Date();
@@ -92,17 +97,10 @@ export default {
                 }
             },
 
-        getTime() {
-                const today = new Date();
-                const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                this.currentTime = time;
-                console.log(this.currentTime)
-            }
         },
 
         created(){
             this.getDate()
-            // this.getTime()
         }
     }
 </script>

@@ -17,10 +17,10 @@ class PageController extends Controller
         $foods = Food::all();
         $categories = Category::all();
         $types = Type::all();
-        $orders = Order::all();
 
-        return response()->json(compact('foods', 'categories', 'types', 'orders'));
+        return response()->json(compact('foods', 'categories', 'types'));
     }
+
 
     public function show($slug)
     {
@@ -43,5 +43,17 @@ class PageController extends Controller
         $type = Type::where('slug', $slug_type)->with('foods')->first();
 
         return response()->json($type);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $new_order = new Order();
+        $new_order->fill($data);
+        $new_order->save();
+        dump($data);
+
+        return response()->json($new_order);
     }
 }

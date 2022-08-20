@@ -22,9 +22,9 @@ function scrollFunction() {
         document.documentElement.scrollTop > 100
     ) {
         document.getElementById("navbar").style.height = "50px";
-        document.getElementById("logo").style.fontSize = "25px";
+        document.getElementById("logo").style.width = "50px";
     } else {
         document.getElementById("navbar").style.height = "80px";
-        document.getElementById("logo").style.fontSize = "30px";
+        document.getElementById("logo").style.width = "80px";
     }
 }

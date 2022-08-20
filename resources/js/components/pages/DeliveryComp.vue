@@ -115,9 +115,10 @@
 
     <!-- Visualizzo il form solo al click su "Procedi con l'ordine" -->
 
-    <checkout-comp v-show="showForm"
+    <checkout-comp v-if="showForm"
     @closeForm = "closeForm"
     :price = "totalPrice"
+    :cart = "cart"
     />
 
 
@@ -163,7 +164,6 @@ export default {
             }
             product.amount++
             this.showFinalPrice()
-            // console.log(this.cart)
         },
 
         // rimuovo un prodotto al click sul -
@@ -175,7 +175,6 @@ export default {
             }
             product.amount--
             this.showFinalPrice()
-            // console.log(this.cart)
         },
 
         //aggiunge il prodotto cliccato all'array carrello

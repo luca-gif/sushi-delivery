@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-6">
 
-                        <img src="../../assets/img/Sushi-Logo-Graphics-6589364-1.jpg" alt="sushi logo">
+                        <img src="../../assets/img/pngwing.com(2).png" alt="sushi logo">
 
                         <p class="py-4 text-muted">
                         Miko Sushi è cucina fusion di alta qualità e di straordinario equilibrio sensoriale. Tradizioni millenarie che diventano vere e proprie opere d’arte, piene di eleganza e di gusto. Piatti che ti catturano con gli occhi prima ancora del con il palato. Miko Sushi è esperienza culinaria che diventa emozione.
@@ -92,7 +92,8 @@
                     <div class="col-3">
                         <h6>FOLLOW</h6>
                         <span>
-                            IG - FB
+                            <img id="ig" src="../../assets/img/ig .png" alt="instagram" title="Instagram">
+                            <img id="fb" src="../../assets/img/fb.png" alt="facebook" title="Facebook">
                         </span>
                     </div>
                 </div>
@@ -162,6 +163,17 @@ export default {
 
             h6{
                 margin-bottom: 15px;
+            }
+
+            img{
+                width: 35px;
+                cursor: pointer;
+            }
+
+            #fb{
+                width: 30px;
+                border-radius: 5px;
+                margin-left: 5px;
             }
         }
 

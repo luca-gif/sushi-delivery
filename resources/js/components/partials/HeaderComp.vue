@@ -4,7 +4,7 @@
     <nav id="navbar" class="container d-flex justify-content-between align-items-center">
 
         <div id="logo">
-            LOGO
+            <img class="w-100" src="../../assets/img/pngwing.com(6).png" alt="sushi logo">
         </div>
 
         <div class="actions">
@@ -24,13 +24,8 @@
 
 export default {
     name: 'HeaderComp',
-
-    data(){
-        return{
-
-        }
-    }
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -51,6 +46,10 @@ export default {
                 color: #919191;
                 text-decoration: none;
             }
+        }
+
+        #logo{
+            transition: all .5s;
         }
     }
 
