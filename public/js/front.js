@@ -2095,6 +2095,10 @@ __webpack_require__.r(__webpack_exports__);
     closeForm: function closeForm() {
       this.showForm = false;
     },
+    orderSended: function orderSended() {
+      this.showForm = false;
+      this.cart = [];
+    },
     // aggiungo un prodotto al click sul +
     addItem: function addItem(product) {
       if (!this.cart.includes(product)) {
@@ -2571,7 +2575,7 @@ var render = function render() {
     },
     on: {
       click: function click($event) {
-        return _vm.sendOrder();
+        _vm.sendOrder(), _vm.$emit("orderSended");
       }
     }
   }, [_vm._v("Invia")]), _vm._v(" "), _c("h5", {
@@ -2776,7 +2780,8 @@ var render = function render() {
       cart: _vm.cart
     },
     on: {
-      closeForm: _vm.closeForm
+      closeForm: _vm.closeForm,
+      orderSended: _vm.orderSended
     }
   }) : _vm._e()], 1);
 };

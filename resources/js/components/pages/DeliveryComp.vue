@@ -117,6 +117,7 @@
 
     <checkout-comp v-if="showForm"
     @closeForm = "closeForm"
+    @orderSended = "orderSended"
     :price = "totalPrice"
     :cart = "cart"
     />
@@ -154,6 +155,11 @@ export default {
 
         closeForm(){
             this.showForm = false
+        },
+
+        orderSended(){
+            this.showForm = false
+            this.cart = []
         },
 
         // aggiungo un prodotto al click sul +

@@ -26,7 +26,7 @@
             <input type="time" class="form-control" v-model="newOrder.hour" id="time">
         </div>
 
-        <button @click="sendOrder()" type="submit" class="btn btn-secondary mt-3 w-100">Invia</button>
+        <button @click="sendOrder(), $emit('orderSended')" type="submit" class="btn btn-secondary mt-3 w-100">Invia</button>
 
         <h5 class="text-right p-3 text-muted">Totale ordine: <strong>€ {{price}}</strong></h5>
     </form>
